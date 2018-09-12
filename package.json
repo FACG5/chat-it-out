@@ -7,12 +7,14 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./src/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "cookies": "^0.7.1",
     "env2": "^2.2.2",
     "express": "^4.16.3",
@@ -26,6 +28,7 @@
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
     "istanbul": "^0.4.5",
+    "nodemon": "^1.18.4",
     "supertest": "^3.3.0",
     "tap-spec": "^5.0.0",
     "tape": "^4.9.1"
