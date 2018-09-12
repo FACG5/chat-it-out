@@ -1,0 +1,165 @@
+*{
+    padding:0;
+    margin: 0;
+    font-family: lato;
+}
+/***************** Header Style ****************/
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color:#F4F4F4;
+    display: flex;
+    align-content: center;
+
+}
+header .container{
+
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header .container .huhamburger {
+    display: none;
+    cursor: pointer;
+}
+header .container .logo{
+    width: fit-content;
+    margin-left: 150px;
+    cursor: pointer;
+}
+header .container .logo span{
+    display: block;
+}
+header .container .logo .first_word{
+    font-size:24px;
+    color:#FF8D19;
+}
+header .container .logo .second_word{
+    font-size:13px;
+    color:#5B5D61;
+    font-weight: lighter;
+    margin-left: 50px;
+}
+header .container nav ul{
+    display: flex;
+    height: 100%;
+    align-content: center;
+}
+header .container nav ul li {
+    list-style: none;
+    margin-left: 20px;
+}
+header .container nav ul li a{
+    text-decoration: none;
+    color:#5A5A5A;
+    transition-duration: .3s;
+}
+header .container nav ul li a:hover{
+    color:#FF8D19;
+}
+/***************** Style of Side Section *************/
+aside {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 60px;
+}
+aside .side{
+    width: 80%;
+    height: 100vh;
+    position: fixed;
+    left: 0px;
+    top: 60px;
+    transition-duration: .8s;
+    background: #3D3D3D;
+}
+aside .side h1{
+    text-align: center;
+    color:#eee;
+    font-size:30px;
+    margin-top: 10px;
+    font-family: lato;
+    font-weight: 100;
+    padding-bottom: 10px;
+    border-bottom:.3px #eee solid;
+    cursor: pointer;
+}
+aside .side span{
+    display: block;
+    text-align: center;
+    color:#eee;
+    font-size:20px;
+    margin-top: 10px;
+    font-family: lato;
+    font-weight: 100;
+    padding-bottom: 10px;
+    border-bottom:.2px #eee solid;
+    cursor: pointer;
+}
+aside .hide_aside{
+    width: 80%;
+    height: 100vh;
+    position: fixed;
+    left: -2000px;
+    top: 60px;
+    background: #3D3D3D;
+    transition-duration: .4s;
+}
+aside .hide_aside h1{
+    text-align: center;
+    color:#eee;
+    font-size:30px;
+    margin-top: 10px;
+    font-family: lato;
+    font-weight: 100;
+    padding-bottom: 10px;
+    border-bottom:.3px #eee solid;
+    cursor: pointer;
+}
+aside .hide_aside span{
+    display: block;
+    text-align: center;
+    color:#eee;
+    font-size:20px;
+    margin-top: 10px;
+    font-family: lato;
+    font-weight: 100;
+    padding-bottom: 10px;
+    border-bottom:.2px #eee solid;
+    cursor: pointer;
+}
+
+/**************** Media Query *****************************/
+@media only screen and (max-width: 800px) {
+    header .container {
+        display:flex;
+   }
+    header .container .huhamburger{
+        display: block;
+   }
+    header .container .huhamburger span{
+        display: block;
+        border-top:3px #5B5D61 solid;
+        width: 20px;
+        height: 3px;
+        border-radius: 2px;
+   }
+    header .container .logo{
+        margin: 0 0;
+   }
+    header .container nav{
+        display: none;
+   }
+}
+.hide{
+    position: fixed;
+    left: -2000px;
+}

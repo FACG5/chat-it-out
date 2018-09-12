@@ -1,0 +1,294 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: lato;
+}
+body{
+    display: block;
+}
+.alter_header{
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+main .main_section{
+    margin-top: 60px;
+    height: calc(100vh - 60px);
+    display: flex;
+}
+main .main_section .last_messages{
+    height: 100%;
+    width: 25%;
+}
+main .main_section .messenger{
+    width: 55%;
+    border-left:3px #F4F4F4 solid;
+    border-right:3px #F4F4F4 solid;
+}
+main .main_section .search{
+    width: 20%;
+}
+main .main_section .last_messages .header{
+    height: 60px;
+    width: 100%;
+    border-bottom: 3px #F4F4F4 solid;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    font-size:22px;
+    color:#626262;
+}
+main .main_section .messenger .header{
+    height: 60px;
+    width: 100%;
+    border-bottom: 3px #F4F4F4 solid;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    font-size:22px;
+    color:#626262;
+}
+main .main_section .search .header{
+    height: 60px;
+    width: 100%;
+    color:#626262;
+    border-bottom: 3px #F4F4F4 solid;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    font-size:22px;
+}
+main .main_section .last_messages ul{
+    width: 100%;
+}
+main .main_section .last_messages ul li{
+    width: 95%;
+    margin: 0 auto;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,.5);
+    transition-duration: .5s;
+    height: 90px;
+    margin-top:10px;
+    cursor: pointer;
+}
+main .main_section .last_messages ul li .message{
+    padding-top: 20px;
+}
+main .main_section .last_messages ul li:hover{
+    box-shadow: 0 0 8px 0 rgba(0,0,0,.5);
+}
+main .main_section .last_messages ul li .username{
+    font-size:26px;
+    margin-left: 20px;
+    columns: #5a5a5a;
+}
+main .main_section .last_messages ul li .live_logo{
+    float:right;
+    margin-right: 10px;
+    display: flex;
+}
+main .main_section .last_messages ul li .live_logo .live_circle{
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: greenyellow;
+    border-radius: 100px;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+main .main_section .last_messages ul li .live_logo .live_word{
+    font-size:18px;
+    color:#5A5A5A;
+    margin-right: 10px;
+}
+main .main_section .last_messages ul li .last_message{
+    display: block;
+    margin-left: 30px;
+    font-size: 14px;
+    columns: #5a5a5a;
+}
+main .main_section .messenger .message_sender{
+    width: 100%;
+    background: inherit;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    border-top:3px #F4F4F4 solid;
+}
+main .main_section .messenger .message_sender input{
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: block;
+    border-radius: 5px;
+    background: #eaeaea;
+    border: 0;
+    height:80%;
+    font-size:18px;
+    padding-left:20px;
+    outline: none;
+}
+main .main_section .messenger .message_sender input::placeholder{
+    font-size:18px;
+}
+#search_btn{
+    width:100%;
+    height: 100%;
+    border-radius: 5px;
+    border:none;
+    background: #eaeaea;
+    outline: 0;
+    padding-left: 15px;
+    font-family: lato;
+    font-size:18px;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,.4);
+}
+.messenger_space{
+    width: 95% !important;
+    height:80%;
+    margin: 0 auto;
+    margin-top: 2%;
+    margin-bottom:1%;
+}
+.messenger_space .message{
+    width: 100%;
+}
+.left{
+    display: flex !important;
+    justify-content: flex-start !important;
+    margin-bottom: 20px;
+}
+.right{
+    display: flex !important;
+    justify-content: flex-end !important;
+    margin-bottom: 20px;
+}
+.left p,.right p {
+    padding:10px;
+    box-shadow: 0 0 20px 0 rgba(0,0,0,.3);
+    border-radius: 100px;
+    font-size:1.4rem;
+    cursor: unset;
+}
+.left p {
+    background: #969696;
+    color:white;
+}
+.right p {
+    background: #C2C2C2;
+}
+@media screen and (min-width:700px){
+    main .main_section .last_messages{
+        width: 45%;
+   }
+    main .main_section .messenger{
+        width: 55%;
+   }
+}
+@media screen and (max-width:750px){
+    main .main_section .last_messages{
+        width: 90%;
+        display: block;
+        margin: 0 auto;
+   }
+    main .main_section ul li{
+        list-style: none;
+   }
+    main .main_section .messenger{
+        display:none;
+        width: 100%;
+        border: 0;
+   }
+    #search_btn{
+        margin: 10px inherit;
+        margin-top: 20px;
+   }
+    main .main_section .last_messages ul {
+        margin-top: 20px;
+   }
+    header{
+        display: flex;
+   }
+    .alter_header{
+        display: none;
+        background: blueviolet;
+        width: 100%;
+        height: 60px;
+        justify-content: space-around;
+        align-content: center;
+        align-items: center;
+   }
+    .alter_header i{
+        color:white;
+        font-size:20px;
+        cursor: pointer;
+   }
+    .alter_header .username{
+        font-size:25px;
+        text-transform :capitalize;
+        margin-right: 20px;
+        color:white;
+        cursor:default;
+   }
+    .alter_header .live_logo{
+        color:white;
+        font-size: 18px;
+        display: flex;
+   }
+    .alter_header .live_logo .live_circle{
+        width: 10px;
+        height: 10px;
+        background:greenyellow;
+        margin-right: 10px;
+        border-radius: 50%;
+   }
+    main .main_section .messenger .header{
+        display: none;
+   }
+    main .main_section .messenger_space{
+        height: 85%;
+   }
+    main .main_section #message_sender{
+        width: 80%;
+   }
+    main .main_section #message_sender::placeholder{
+        font-size:15px;
+   }
+    .flex_display{
+        display: flex;
+   }
+    .block_displat{
+        display: block;
+   }
+    .none_display{
+        display: none;
+   }
+   @media screen and (max-height:600px){
+    main .main_section .messenger_space{
+        height: 80%;
+   }
+    
+   }
+}
+
+@media screen and (min-width:900px){
+    main .main_section .last_messages{
+        width: 35%;
+   }
+    main .main_section .messenger{
+        width: 60%;
+   }
+}
+@media screen and (min-width:1100px){
+    main .main_section .last_messages{
+        width: 25%;
+   }
+    main .main_section .messenger{
+        width: 70%;
+   }
+}
