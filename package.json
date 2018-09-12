@@ -1,7 +1,7 @@
 {
   "name": "chat-it-out",
   "version": "1.0.0",
-  "description": "Prototype [Here ](https://www.figma.com/file/ZWhrAfb41Qyqkz9arVEkcbaE/Untitled?node-id=0%3A1)",
+  "description": "Website for mental patients",
   "main": "index.js",
   "directories": {
     "test": "test"
