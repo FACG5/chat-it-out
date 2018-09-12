@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const handlebars = require('express-handlebars');
-const Router = require('./controllers/index');
+const controller = require('./controllers');
 
 const app = express();
 
@@ -10,7 +10,7 @@ app.set('port', process.env.PORT || 3000);
 app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(Router);
+app.use(controller);
 
 // Hanldebars settings
 app.set('view engine', 'hbs');
@@ -20,7 +20,6 @@ app.engine('hbs', (handlebars({
   layoutsDir: path.join(__dirname, 'views', 'layouts'),
   partialsDir: path.join(__dirname, 'views', 'partials'),
   defaultLayout: 'main',
-
 })));
 
 module.exports = app;
