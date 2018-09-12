@@ -1,33 +1,33 @@
 {
   "name": "chat-it-out",
   "version": "1.0.0",
-  "description": "",
+  "description": "Website for mental patients",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./src/index.js",
+    "dev": "nodemon ./src/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cookies": "^0.7.1",
-    "env2": "^2.2.2",
-    "express": "^4.16.3",
-    "express-handlebars": "^3.0.0",
-    "jsonwebtoken": "^8.3.0",
-    "pg": "^7.4.3",
-    "socket.io": "^2.1.1"
+    "express": "^4.16.3"
   },
   "devDependencies": {
     "eslint": "^5.5.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
-    "istanbul": "^0.4.5",
-    "supertest": "^3.3.0",
-    "tap-spec": "^5.0.0",
-    "tape": "^4.9.1"
-  }
+    "nodemon": "^1.18.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FACG5/chat-it-out.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FACG5/chat-it-out/issues"
+  },
+  "homepage": "https://github.com/FACG5/chat-it-out#readme"
 }
