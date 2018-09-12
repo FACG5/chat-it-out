@@ -14,7 +14,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.3",
     "cookies": "^0.7.1",
     "env2": "^2.2.2",
     "express": "^4.16.3",
