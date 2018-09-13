@@ -6,6 +6,7 @@ tape('check the article page route', (t) => {
   supertest(app)
     .get('/article')
     .expect(200)
+    .expect('Content-Type', /html/)
     .end((err, res) => {
       if (err) {
         t.error(err);
