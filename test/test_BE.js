@@ -1,8 +1,10 @@
 const tape = require('tape');
 const supertest = require('supertest');
-const app = require('./../../src/app');
+const app = require('./../src/app');
 
-tape('check if tape is running ', (t) => {
+
+// Test Doctors Route
+tape('check doctor.get route ', (t) => {
   supertest(app)
     .get('/chat')
     .expect(200)
