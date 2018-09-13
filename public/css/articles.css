@@ -1,0 +1,125 @@
+/* @import url('https://fonts.googleapis.com/css?family=Lato'); */
+
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400');
+@import url('https://fonts.googleapis.com/css?family=Cairo');
+* {
+  padding: 0;
+  margin: 0;
+  font-family: lato, sans-serif;
+}
+
+
+
+main {
+  width: 100%;
+  margin-top: 100px;
+  margin-bottom: 30px;
+}
+
+main .container {
+  width: 85%;
+  margin: 0 auto;
+}
+
+main h1 {
+  width: fit-content;
+  margin: 0 auto;
+  padding-bottom: 10px;
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: 300;
+  border-bottom: 1.4px solid #808080;
+}
+
+main .container .articles {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  flex-wrap: wrap;
+}
+
+main .container .articles .article {
+  width: 30%;
+  height: 250px;
+  margin-bottom: 20px;
+}
+
+main .container .articles .article .article_img {
+  height: 70%;
+  background: black;
+  position: relative;
+}
+
+main .container .articles .article .article_img img {
+  width: 100%;
+  height: 100%;
+}
+
+main .container .articles .article .article_img:hover img {
+  background-color: rgba(0, 0, 0, .5);
+  opacity: 0.3;
+  transition-duration: .4s ease;
+}
+
+main .container .articles .article .article_title {
+  text-align: center;
+  text-transform: capitalize;
+  margin-top: 20px;
+}
+
+main .container .articles .article .article_img .middle_button {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+main .container .articles .article .article_img .middle_button .read_more {
+  padding: 5px 10px;
+  border: none;
+  background-color: #4AADF6;
+  color: #fff;
+  font-family: 'Cairo', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: .4s;
+}
+
+main .container .articles .article .article_img:hover .middle_button {
+  opacity: 1;
+}
+
+
+/**************** Media Query *****************************/
+
+@media only screen and (max-width: 800px) {
+  main .container .articles .article {
+    width: 40%;
+    margin-bottom: 20px;
+  }
+  main .container .articles .article:last-child {
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+
+  main .container .articles .article {
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+
+
+  main .container .articles .article:last-child {
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+
+}
