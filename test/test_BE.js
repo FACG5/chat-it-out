@@ -12,7 +12,6 @@ tape('test for /articles route ', (t) => {
       }
       t.ok(res.text.includes('body'));
       t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'the respone  should be html file');
-      console.log(res.header);
       t.equal(res.header['content-type'], 'text/html; charset=utf-8', 'the content-type should equal html');
       t.end();
     });
