@@ -130,18 +130,6 @@ body {
        margin: 20px 0;
    }
 }
- #usernameErr {
-    
-    color: red;
-    display: block;
-
-}
-#passErr {
-
-    display: block;
-    color: red;
-
-}
-#emailErr{
-    color:red;
-}
+ .err {
+     color:red;
+ }
