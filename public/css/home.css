@@ -1,0 +1,307 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: Lato;
+}
+
+/*The Showcase section*/
+.showcase {
+    background-image: url(http://imamsonline.com/wp-content/uploads/2017/08/mental-health-stigma.jpg) ;
+height: 450px;
+}
+.showcase .container {
+    background-color: rgba(0, 0, 0, .4);
+}
+.container{
+width: 100%;
+height: 100%;
+}
+.showcase .container .content{
+    width: 25%;
+    height: 150px;
+    text-align: center;
+    padding-left: 100px;
+    padding-top: 70px;
+}
+
+.showcase .container .content h1 {
+    color: #FF8D19;
+    font-size: 40px;
+}
+.showcase .container .content h2 {
+    color: #EEE;
+    font-size: 18px;
+    margin-bottom: 10px;
+    padding-left: 100px;
+    font-weight: 300;
+}
+.showcase .container .content p {
+    color: #EEE;
+    font-size: 15px;
+    margin-top: 30px;
+}
+.showcase .container .content button {
+    margin-top: 30px;
+    padding: 7px 25px;
+    border: none;
+    background-color: #FF8D19;
+    color: #EEE;
+    border-radius: 2px;
+    font-size: 20px;
+    font-weight: 300;
+    font-family: Roboto;
+}
+/*Thereby concludes the showcase section */
+
+main section>h1:first-child {   
+    width: fit-content;
+    margin: 40px auto;
+    font-weight: lighter;
+    letter-spacing: 1px;
+    font-size: 30px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #A5A5A5;
+}
+main section .container2{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+main section .container2 .item {
+    width: 25%; 
+    text-align: center;
+    margin: 10px 20px;
+}
+main section .container2 .item h1 {
+    margin-bottom: 20px;
+    font-weight: lighter; 
+}
+main section .container2 .item:nth-child(2){
+    border-left: 1px  #FF8D19 solid ;
+    border-right: 1px  #FF8D19 solid ;
+    padding: 0 25px;
+}
+main section .container2 .item p {
+    color: #868686;
+}
+hr {
+    background-color: #FF8D19;
+    border: none;
+    height:  1px;
+    width: 40%;
+    margin: 15px auto;
+
+}
+/* And thus ends the services section */ 
+
+/*Here begins the contact us section*/
+main section .container3 {
+    width: 80%;
+    margin: 0 auto;
+    display:flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+main section .container3 .pic {
+    width: 50%;
+    height: 300px;
+    border: 1px solid black;
+    /* margin: 10px 20px; */
+}
+main section .container3 .form {
+    width: 40%;
+}
+main section .container3 .form label {
+    display: block;
+    font-size: 14px;
+    
+}
+main section .container3 .form label input {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 260px;
+    height: 40px;
+    border: 0;
+    border-radius: 4px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, .4);
+}
+main section .container3 .form button {
+    margin-top: 20px;
+    margin-left: 80px;
+    padding: 7px 25px;
+    border: none;
+    background-color: #FF8D19;
+    color: #EEE;
+    border-radius: 3px;
+    font-size: 20px;
+    font-weight: 300;
+    font-family: Roboto;
+}
+main section .container3 .form label input::placeholder {
+    padding-left: 6px;
+}
+/* Here ends the contact section */
+ /* Footer starts here */
+
+ /* responsive design */
+ @media (max-width: 1200px) {
+    .showcase .container .content h1 {
+        color: #FF8D19;
+        font-size: 30px;
+    }
+    .showcase .container .content h2 {
+        color: #EEE;
+        font-size: 15px;
+        margin-bottom: 10px;
+        padding: 0;
+        font-weight: 300;
+    }
+    .showcase .container .content p {
+        color: #EEE;
+        font-size: 12px;     
+        padding: 0 25px;
+        margin-top: 30px;
+    }
+    .showcase .container .content{
+        width: 50%;
+    
+    }
+ }
+ @media (max-width: 800px) {
+     
+    main section .container2 .item{
+   
+        padding: 0 25px;
+         
+    }
+    .showcase .container .content  {
+        width: 50%;
+    }
+
+    main section .container2 .item:nth-child(2){
+   border-right: none;
+        padding: 0 25px;
+         
+    }
+
+    main section .container2 .item:nth-child(4){
+        border-left: 1px  #FF8D19 solid ;
+        padding: 0 25px;
+              
+         }
+         header .logo{
+           margin-left: 100px;  
+         }
+
+
+     
+}
+
+
+@media (max-width: 670px) {
+
+    .nav {
+        display: none;
+    }
+
+    header .icon{
+        padding-bottom: 15px;
+    }
+
+    header .icon label{
+        display: inline;
+        position: absolute;
+        right: 10px;
+        font-size: 35px;
+        color: #5B5D61;
+        font-weight: 300; 
+        cursor: pointer;
+        }
+
+        .hamburger-menu{
+        display: none;
+        z-index: 5;
+        font-size: 24px;
+        background-color: rgba(0, 0, 0, 0.7);
+        position: absolute;
+        right: 0;
+        top: 65px;
+        z-index: 5;
+        width: 400px;
+        border-radius: 5px;
+        
+    } 
+    .hamburger-menu ul {
+        text-align: center;
+    }
+    .hamburger-menu ul li {
+        list-style: none;
+        padding: 30px;
+        border-bottom: 1px solid whitesmoke;
+    }
+    .hamburger-menu ul li a {
+        text-decoration: none;
+        color: #EEE;
+    } 
+    #toggle:checked ~ .hamburger-menu {
+        
+        display: block;
+    }
+    main section .container3 .pic{
+        width: 100%
+    }
+    main section .container3 .form {
+        width: 100%;
+    }
+    main section .container3 {
+        display: block;
+    }
+    main section .container3 .form{
+        margin: 0 auto;
+
+        }
+        main section .container2 .item {
+            width: 100%; 
+            border: none;
+        }
+        main section .container2 .item:nth-child(2){
+            border: none;
+        }
+
+    main section .container2 .item:nth-child(4){
+       border: none;
+              
+         }
+         .showcase .container .content {
+             width: 50%;    
+         }
+         main section .container3 .form {
+            margin: 39px auto;
+         }
+         main section .container3 .form label input {
+             margin: 10px auto;
+
+         }
+         main section .container3 .form label {
+             margin: 0 auto;
+             width: fit-content;
+
+         }
+         main section .container3 .form button{ 
+            width: fit-content;
+            margin: 15px auto;
+            display: flex
+         }
+         header .icon label {
+            font-size: 20px;
+        }
+        .hamburger-menu ul li {
+            padding: 10px;
+        }
+}   
+
