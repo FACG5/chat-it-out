@@ -1,50 +1,38 @@
-const hamburger = document.getElementById('hamburger');
-const sliderbar = document.getElementById('slider_bar');
-const aside = document.getElementById('aside');
-const alter_header = document.getElementById('alter_header');
+
 const header = document.getElementById('header');
 const messages = document.getElementById('messages');
 const messenger_space = document.getElementById('messenger_space');
 const last_messages = document.getElementById('last_messages');
 const back_btn = document.getElementById('back_btn');
 
-if (hamburger) {
-  hamburger.addEventListener('click', () => {
-    aside.classList.toggle('hide');
-    sliderbar.classList.toggle('side');
-    sliderbar.classList.toggle('hide_aside');
-  });
-}
-
 messages.addEventListener('click', (event) => {
+
   if (window.innerWidth < 750 && event.target.tagName !== 'UL') {
-    last_messages.setAttribute('style', 'display:none');
-    messenger_space.setAttribute('style', 'display:block');
-    header.setAttribute('style', 'display:none');
-    alter_header.setAttribute('style', 'display:flex');
+    headerVisible('none', 'block', 'none', 'flex');
   }
-});
 
-back_btn.addEventListener('click', (event) => {
+});
+back_btn.addEventListener('click', () => {
+
   if (window.innerWidth < 750) {
-    last_messages.setAttribute('style', 'display:block');
-    messenger_space.setAttribute('style', 'display:none');
-    header.setAttribute('style', 'display:flex');
-    alter_header.setAttribute('style', 'display:none');
+    headerVisible('block', 'none', 'flex', 'none');
   }
-});
 
+});
 window.addEventListener('resize', () => {
 
   if (window.innerWidth > 750) {
-    last_messages.setAttribute('style', 'display:block');
-    messenger_space.setAttribute('style', 'display:block');
-    header.setAttribute('style', 'display:flex');
-    alter_header.setAttribute('style', 'display:none');
+    headerVisible('block', 'block', 'flex', 'none');
   } else {
     last_messages.setAttribute('style', 'display:block');
     messenger_space.setAttribute('style', 'display:none');
     header.setAttribute('style', 'display:flex');
-}
+  }
 
 });
+const headerVisible = (last_messages, messenger_space, header, alter_header) => {
+  last_messages.setAttribute('style', `display:${last_messages};`);
+  messenger_space.setAttribute('style', `display:${messenger_space};`);
+  header.setAttribute('style', `display:${header};`);
+  alter_header.setAttribute('style', `display:${alter_header};`);
+};

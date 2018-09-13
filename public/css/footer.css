@@ -5,8 +5,7 @@ footer {
     width: 100%;
     height: 150px;
     display: flex;
-    /* align-content: center; */
-  }
+   }
 
   footer .container {
     width: 90%;
@@ -21,8 +20,7 @@ footer {
     margin-left: 150px;
   }
 
-  footer .container .logo-container span {
-    display: block;
+  footer .container .logo-container div {
     color: #FFF;
   }
 
@@ -52,36 +50,29 @@ footer {
     transition-duration: .3s;
   }
 
-  .container nav ul li a .instgram {
-    background: #EB0061;
-    border-radius: 50%;
-  }
-
   .instgram {
     width: 32px;
     height: 32px;
     border: 0;
+    background: #EB0061;
+    border-radius: 50%;
   }
 
   /**************** Media Query *****************************/
-
-
-
   @media only screen and (max-width: 600px) {
 
     footer {
       height: 250px;
-      display: block;
-      /* align-content: center; */
     }
 
-    footer .container {
+    footer , footer .container {
       display: block;
 
     }
+
     footer .container .logo-container {
       width: fit-content;
-      margin: 0 auto;;
+      margin: 0 auto;
       margin-bottom: 50px;
       padding-top: 50px;
     }
