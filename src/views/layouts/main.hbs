@@ -12,13 +12,9 @@
 
 
     {{#if headerFound}}
-    
     <header>
-    
         {{>header}}
-    
     </header>
-    
     {{/if}}
 
     <main>
@@ -26,13 +22,13 @@
         {{{body}}}
 
     </main>
-
+    {{#if asideFound}}
     <aside class="hide">
 
         {{>aside}}
 
     </aside>
-
+    {{/if}}
 
     {{#if footerFound}}
     <footer>
