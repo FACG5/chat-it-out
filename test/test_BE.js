@@ -13,7 +13,6 @@ tape('check the article page route', (t) => {
       }
       t.ok(res.text.includes('body'));
       t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'The response should be html');
-      t.equal(res.header['content-type'], 'text/html; charset=utf-8', 'Should return text/html');
       t.end();
     });
 });
