@@ -4,7 +4,7 @@ const app = require('./../src/app');
 
 
 // Test Doctors Route
-tape('Check /chat Route', (t) => {
+tape('Check /doctors Route', (t) => {
   supertest(app)
     .get('/doctors')
     .expect(200)
