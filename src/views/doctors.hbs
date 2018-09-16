@@ -2,19 +2,18 @@
     <div class="container">
         <h1>Doctors</h1>
         <div class="doctors">
+            {{#each arrayOfDoctors}}
             <div class="doctor">
-                <div class="img">
-                </div>
+                <img class="img" src="{{this.doctor_image}}" alt="">
                 <article>
-                    <span class="doctor_name">Dr. Rami Hassan Rami</span>
+                    <span class="doctor_name">{{this.user_name}}</span>
                     <span class="doctor_age">Age: 45</span>
-                    <span class="about_doctor">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos at modi
-                        enim eligendi amet impedit, cumque, sit perferendis ab quis ex tempore facere a minus tenetur,
-                        harum beatae numquam quas?
+                    <span class="about_doctor">{{this.doctor_description}}
                     </span>
                     <input type="submit" id="view_doctor" value="View More">
                 </article>
             </div>
+            {{/each}}
         </div>
     </div>
 </section>
