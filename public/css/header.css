@@ -1,8 +1,3 @@
-*{
-    padding:0;
-    margin: 0;
-    font-family: lato;
-}
 /***************** Header Style ****************/
 header{
     position: fixed;
@@ -15,6 +10,7 @@ header{
     background-color:#F4F4F4;
     display: flex;
     align-content: center;
+    z-index: 999;
 
 }
 header .container{

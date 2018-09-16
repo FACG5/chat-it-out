@@ -1,8 +1,3 @@
-*{
-    padding: 0;
-    margin: 0;
-    font-family: lato;
-}
 body{
     display: block;
 }
@@ -272,7 +267,7 @@ main .main_section .messenger .message_sender input::placeholder{
     main .main_section .messenger_space{
         height: 80%;
    }
-    
+
    }
 }
 
