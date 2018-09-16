@@ -3,7 +3,7 @@ BEGIN;
 
 DROP TABLE IF EXISTS users,
                      articles,
-                     contacts,
+                     suggestions,
                      chats CASCADE;
 
 
@@ -20,7 +20,7 @@ CREATE TABLE articles (article_id SERIAL PRIMARY KEY,
                                                                                                      article_body TEXT NOT NULL);
 
 
-CREATE TABLE suggestions (contact_id SERIAL PRIMARY KEY,
+CREATE TABLE suggestions (suggestion_id SERIAL PRIMARY KEY,
                                                  name VARCHAR(50) NOT NULL,
                                                                   email TEXT NOT NULL,
                                                                              subject TEXT NOT NULL,
