@@ -47,8 +47,8 @@ tape('check the admin page route', (t) => {
     .end((err, res) => {
       if (err)
         t.error(err);
-        t.ok(res.text.includes('body'));
-        t.ok(res.text.includes('admin'));
+      t.ok(res.text.includes('body'));
+      t.ok(res.text.includes('admin'));
       t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'The Response Should Be Html Page');
       t.end();
     });
@@ -68,4 +68,36 @@ tape('check the article page route', (t) => {
       t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'The Response Should Be Html Page');
       t.end();
     });
+});
+
+//test the /signIn ( Login Page ) Route
+tape(' Check The Sign in Page Route', (t) => {
+  supertest(app)
+    .get('/signIn')
+    .expect('Content-type', /html/)
+    .expect(200)
+    .end((err, res) => {
+      if (err)
+        t.error(err)
+      t.ok(res.text.includes('body'));
+      t.ok(res.text.includes('login'));
+      t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'The Response Should Be Html Page');
+      t.end();
+    });
+});
+
+//test the /signUp (Sign Up Page ) Route
+tape(' Check The Sign Up Page Route', (t) => {
+  supertest(app)
+    .get('/signUp')
+    .expect(200)
+    .expect('Content-type', /html/)
+    .end((err, res) => {
+      if (err)
+        t.error(err)
+      t.ok(res.text.includes('body'));
+      t.ok(res.text.includes('signup'));
+      t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'The Response Should Be Html Page');
+      t.end();
+    })
 });
