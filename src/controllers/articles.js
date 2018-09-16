@@ -1,4 +1,4 @@
-const { getArticles } = require('../model/queries/getData');
+const { getArticles } = require('../model/database/queries/getData');
 
 exports.get = (req, res, next) => {
   getArticles()

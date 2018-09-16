@@ -1,4 +1,4 @@
-const db = require('../database/db_connection.js');
+const db = require('../db_connection');
 
 exports.getArticles = () => {
   const sql = 'SELECT * FROM articles;';

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    {{>head}}
+
+</head>
+
+<body>
+
+
+    {{#if headerFound}}
+
+    <header id="header">
+
+        {{>header}}
+
+    </header>
+
+    {{/if}}
+
+    <main>
+
+        {{{body}}}
+
+    </main>
+
+    <aside class="hide" id="aside">
+
+        {{>aside}}
+
+    </aside>
+
+
+    {{#if footerFound}}
+    <footer>
+        {{>footer}}
+    </footer>
+    {{/if}}
+    {{#each javascript}}
+    <script src="./js/{{this}}.js"></script>
+    {{/each}}
+
+</body>
+
+
+</html>
