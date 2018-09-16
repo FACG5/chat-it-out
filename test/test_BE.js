@@ -47,3 +47,18 @@ tape('check the article page route', (t) => {
       t.end();
     });
 });
+
+tape('check the articles page route', (t) => {
+  supertest(app)
+    .get('/articles')
+    .expect(200)
+    .expect('Content-Type', /html/)
+    .end((err, res) => {
+      if (err) {
+        t.error(err);
+      }
+      t.ok(res.text.includes('body'));
+      t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'the respone  should be html file');
+      t.end();
+    });
+});
