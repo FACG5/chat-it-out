@@ -82,12 +82,21 @@ main .container .articles .article .article_img .middle_button .read_more {
   padding: 5px 10px;
   border: none;
   background-color: #4AADF6;
-  color: #fff;
   font-family: 'Cairo', sans-serif;
   font-weight: bold;
   text-transform: uppercase;
   border-radius: 2px;
-  transition: .4s;
+  transition-duration:3s;
+  cursor: pointer;
+  outline: none
+
+}
+main .container .articles .article .article_img .middle_button .read_more a {
+text-decoration: none;
+color: #fff;
+}
+main .container .articles .article .article_img .middle_button .read_more:hover {
+background-color: #0975C3;
 }
 
 main .container .articles .article .article_img:hover .middle_button {
