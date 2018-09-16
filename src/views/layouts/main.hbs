@@ -12,47 +12,33 @@
 
 
     {{#if headerFound}}
-
         <header id="header">
-
-            {{>header}}
-
+          {{>header}}
         </header>
-
     {{/if}}
 
 
     <main>
-
         {{{body}}}
-
     </main>
-
+  
     
-    {{#if asideFound }}
-
+    {{#if asideFound}}
         <aside class="hide" id="aside">
-
             {{>aside}}
-
         </aside>
-
     {{/if}}
 
+    
     {{#if footerFound}}
-    
         <footer>
-    
             {{>footer}}
-    
         </footer>
-    
     {{/if}}
     
+
     {{#each javascript}}
-    
         <script src="./js/{{this}}.js"></script>
-    
     {{/each}}
 
 </body>
