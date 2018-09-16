@@ -14,7 +14,6 @@ footer {
     align-items: center;
     justify-content: space-between;
   }
-
   footer .container .logo-container {
     width: fit-content;
     margin-left: 150px;
@@ -33,23 +32,20 @@ footer {
     font-weight: lighter;
     margin-left: 50px;
   }
-
   .container nav ul {
     display: flex;
     height: 30%;
     align-content: center;
   }
-
   .container nav ul li {
     list-style: none;
     margin-left: 20px;
   }
-
-  .container nav ul li a {
-    text-decoration: none;
-    transition-duration: .3s;
+  
+  .container nav ul li a .instgram {
+    background: #EB0061;
+    border-radius: 50%;
   }
-
   .instgram {
     width: 32px;
     height: 32px;
@@ -92,5 +88,4 @@ footer {
       height: 30%;
       align-content: space-between;
     }
-
   }
