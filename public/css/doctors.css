@@ -1,0 +1,95 @@
+
+main section .container{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 150px;
+}
+main section .container h1{
+    width: fit-content;
+    font-size: 40px;
+    margin: 0 auto;
+    border-bottom:1px #333 solid;
+    font-weight: 100;
+}
+main section .container .doctors{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin-top: 50px;
+}
+/******************** Doctor Style ***********************/
+main section .container .doctors .doctor{
+    width: 25%;
+    height: 600px;
+    margin-bottom: 50px;
+}
+main section .container .doctors .doctor .img{
+    width: 250px;
+    margin: 0 auto;
+    height: 250px;
+    background-image:url('https://myblue.bluecrossma.com/sites/g/files/csphws636/files/inline-images/Doctor%20Image%20Desktop.png');
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+}
+/******************** Brief Of Doctor ********************/
+main section .container .doctors .doctor article{
+    margin-top: 50px;
+}
+main section .container .doctors .doctor article span{
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+main section .container .doctors .doctor article .doctor_name , 
+main section .container .doctors .doctor article .doctor_age{
+    font-size:20px;
+}
+
+main section .container .doctors .doctor article .about_doctor{
+    font-size:15px;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+main section .container .doctors .doctor article #view_doctor{
+    display: block;
+    font-size:18px;
+    padding: 10px 25px;
+    border: 0;
+    background: #FF8D19;
+    border-radius: 2px;
+    color:white;
+    text-align: center;
+    margin: 20px auto;
+    outline: none;
+    transition-duration: .5s;
+}
+main section .container .doctors .doctor article #view_doctor:hover{
+    background: grey;
+}
+
+
+/***************** Media Query *********************/
+@media only screen and (max-width: 1500px) {
+    main section .container .doctors .doctor{
+        width: 30%;
+        height: 600px;
+        margin-bottom: 50px;
+   }
+}
+@media only screen and (max-width: 1100px) {
+    main section .container .doctors .doctor{
+        width: 40%;
+        height: 600px;
+        margin-bottom: 50px;
+   }
+}
+@media only screen and (max-width: 800px) {
+    main section .container .doctors .doctor{
+        width: 100%;
+        height: 600px;
+        margin-bottom: 50px;
+   }
+}
