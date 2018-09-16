@@ -1,6 +1,6 @@
 const tape = require('tape');
 const supertest = require('supertest');
-const app = require('./../src/app');
+const app = require('./../src/app.js');
 
 
 tape('Check /doctors Route', (t) => {
@@ -20,7 +20,7 @@ tape('Check /doctors Route', (t) => {
 
 tape('check the admin page route', (t) => {
   supertest(app)
-    .get('/admin')
+    .get('/articles')
     .expect(200)
     .expect('Content-Type', /html/)
     .end((err, res) => {
