@@ -93,7 +93,16 @@
 .admin .container .form > div textarea {
     height: 150px;;
 }
-
+.admin .container .form button {
+    background: #FF8D19;
+    border: none;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    color: #FFF;
+    padding: 18px 29px;
+    font-weight: bold;
+    font-size: 19px;
+    margin-bottom: 30px;
+}
 
 @media(max-width: 600px) {
     .admin .container .boxes {
