@@ -7,4 +7,4 @@ exports.get = (req, res) => {
         javascript: ['home', 'hamburger'], services:data.services
     });
 
-};"💂"
+};

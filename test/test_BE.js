@@ -2,6 +2,7 @@ const tape = require('tape');
 const supertest = require('supertest');
 const app = require('./../src/app.js');
 
+
 //test the / ( Home Page )route
 tape('test for home route ', (t) => {
   supertest(app)
@@ -12,12 +13,30 @@ tape('test for home route ', (t) => {
       if (err)
         t.error(err);
       t.ok(res.text.includes('body'));
+      t.ok(res.text.includes('showcase'));
       t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'The Response Should Be Html Page');
       t.end();
 
     });
 });
 
+
+//test the /doctors  ( Doctors Page )route
+tape('Check /doctors Route', (t) => {
+  supertest(app)
+    .get('/doctors')
+    .expect(200)
+    .expect('Content-type', /html/)
+    .end((err, res) => {
+      if (err) {
+        t.error(err);
+      }
+      t.ok(res.text.includes('body'));
+      t.ok(res.text.includes('doctors'));
+      t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'The response should be html');
+      t.end();
+    });
+});
 
 //test the /admin ( Admin Page ) route
 tape('check the admin page route', (t) => {
@@ -28,7 +47,8 @@ tape('check the admin page route', (t) => {
     .end((err, res) => {
       if (err)
         t.error(err);
-      t.ok(res.text.includes('body'));
+        t.ok(res.text.includes('body'));
+        t.ok(res.text.includes('admin'));
       t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'The Response Should Be Html Page');
       t.end();
     });
@@ -44,6 +64,7 @@ tape('check the article page route', (t) => {
       if (err)
         t.error(err);
       t.ok(res.text.includes('body'));
+      t.ok(res.text.includes('article_img'));
       t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'The Response Should Be Html Page');
       t.end();
     });
