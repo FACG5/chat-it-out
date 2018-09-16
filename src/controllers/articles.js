@@ -1,18 +1,17 @@
-const getData = require('../model/database/queries/getData');
+const { getArticles } = require('../model/queries/getData');
 
-exports.get = (req, res) => {
-  getData.getArticles()
+exports.get = (req, res, next) => {
+  getArticles()
     .then((result) => {
-      const articlesArray = result.rows;
       res.render('articles', {
         title: 'Articles ',
         headerFound: true,
         footerFound: true,
         style: ['articles', 'header', 'footer', 'public'],
         javascript: ['hambruger'],
-        articlesArray,
+        articlesArray: result.rows
       });
     }).catch((error) => {
-      res.send(error);
+      next(error);
     });
 };
