@@ -5,7 +5,7 @@ const article = require('./article');
 const doctors = require('./doctors');
 
 // Home Route
-Router.get("/", home.get);
+Router.get('/', home.get);
 
 // Admin Routes
 Router.get('/admin', admin.get);

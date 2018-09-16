@@ -1,4 +1,4 @@
-const { getDoctors } = require('../model/queries/getData');
+const { getDoctors } = require('../model/queries/getData.js');
 
 exports.get = (req, res) => {
   getDoctors().then((result) => {
