@@ -31,7 +31,7 @@ CREATE TABLE chats (
 id SERIAL PRIMARY KEY,
 sender INTEGER REFERENCES users(user_id),
 receiver INTEGER REFERENCES users(user_id),
-message TEXT
+message TEXT NOT NULL
 );
 
 
