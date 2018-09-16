@@ -39,7 +39,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: #FF8D19;
+    background: #F4F4F4;
     -webkit-transform: scaleX(0);
     transform: scaleX(0);
     -webkit-transform-origin: 0 50%;
@@ -51,7 +51,7 @@
     -webkit-transition-timing-function: ease-out;
     transition-timing-function: ease-out;
   }
-  .hvr-sweep-to-right:hover, .hvr-sweep-to-right:focus, .hvr-sweep-to-right:active {
+  .hvr-sweep-to-right:hover .content span, .hvr-sweep-to-right:focus .content span, .hvr-sweep-to-right:active .content span {
     color: white;
   }
   .hvr-sweep-to-right:hover:before, .hvr-sweep-to-right:focus:before, .hvr-sweep-to-right:active:before {
@@ -93,7 +93,19 @@
 .admin .container .form > div textarea {
     height: 150px;;
 }
-
+.admin .container .form button {
+    background: #FF8D19;
+    border: none;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    color: #FFF;
+    padding: 18px 29px;
+    font-weight: bold;
+    font-size: 19px;
+    margin-bottom: 30px;
+}
+.active {
+    border: 2px solid #FF8D19 !important;
+}
 
 @media(max-width: 600px) {
     .admin .container .boxes {
