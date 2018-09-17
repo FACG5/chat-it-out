@@ -9,7 +9,7 @@ const doctors = require('./doctors');
 
 // Sign up Routes
 Router.get('/signUp', signUp.get);
-
+Router.post('/signUp',signUp.post)
 // Sign In Routes
 Router.get('/signIn', signIn.get);
 

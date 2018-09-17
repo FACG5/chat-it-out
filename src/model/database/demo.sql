@@ -5,7 +5,8 @@ INSERT INTO users (user_name,user_email,user_password,permission)VALUES
 INSERT INTO users (user_name,user_email,user_password,permission) VALUES
 ('ons', 'ons@hotmail.com', '1861997', 'doctor'), 
 ('kannan', 'kannan@hotmail.com', 'rami', 'doctor'),
-('mohanned', 'mohanned@hotmail.com', 'fofo','doctor');
+('mohanned', 'mohanned@hotmail.com', 'fofo','doctor'),
+('ahmed', 'ahmed@ahmed.com', '$2a$10$LWRAQJIB/Yyt/pPp.QRJMOSd4AyeCfJkibkYA9VeHv9GTx.uiCS52','patient');
 
 
 INSERT INTO articles (article_title,article_img,article_body)VALUES 
