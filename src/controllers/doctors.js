@@ -6,6 +6,7 @@ exports.get = (req, res) => {
       title: 'Doctors || Chat It Out',
       headerFound: true,
       footerFound: true,
+      asideFound: true,
       style: ['doctors', 'header', 'footer'],
       javascript: ['hamburger'],
       arrayOfDoctors: result.rows,
