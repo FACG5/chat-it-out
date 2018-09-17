@@ -4,9 +4,11 @@ DROP TABLE IF EXISTS users,articles, suggestions,chats CASCADE;
 
 CREATE TABLE users (
 user_id SERIAL PRIMARY KEY,
-user_name VARCHAR(20) NOT NULL,
+user_name VARCHAR(20) NOT NULL UNIQUE,
 user_email TEXT NOT NULL UNIQUE,
 user_password TEXT NOT NULL,
+doctor_image TEXT DEFAULT 'https://myblue.bluecrossma.com/sites/g/files/csphws636/files/inline-images/Doctor%20Image%20Desktop.png',
+doctor_description TEXT,
 permission VARCHAR(10) DEFAULT 'user'
 );
 

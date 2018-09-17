@@ -106,6 +106,10 @@
 .active {
     border: 2px solid #FF8D19 !important;
 }
+.err {
+    color: red;
+}
+h1 {margin-bottom: 164px;}
 
 @media(max-width: 600px) {
     .admin .container .boxes {
