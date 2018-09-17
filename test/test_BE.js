@@ -33,8 +33,7 @@ tape('Check /doctors Route', (t) => {
       }
       t.ok(res.text.includes('body'));
       t.ok(res.text.includes('doctors'));
-      t.equal(res.text.substr(0, 15),const signUp = require ('./signUp');
-      const signIn = require ('./signIn'); '<!DOCTYPE html>', 'The response should be html');
+      t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'The Response Should Be Html Page');
       t.end();
     });
 });
@@ -94,7 +93,7 @@ tape(' Check The Sign in Page Route', (t) => {
     .expect(200)
     .end((err, res) => {
       if (err)
-        t.error(err)
+        t.error(err);
       t.ok(res.text.includes('body'));
       t.ok(res.text.includes('login'));
       t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'The Response Should Be Html Page');
@@ -110,10 +109,10 @@ tape(' Check The Sign Up Page Route', (t) => {
     .expect('Content-type', /html/)
     .end((err, res) => {
       if (err)
-        t.error(err)
+        t.error(err);
       t.ok(res.text.includes('body'));
       t.ok(res.text.includes('signup'));
       t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'The Response Should Be Html Page');
       t.end();
-    })
+    });
 });
