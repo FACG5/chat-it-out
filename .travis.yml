@@ -9,5 +9,5 @@ env:
   global:
   - PGPORT=5432
 before_script:
-  - psql -c "CREATE DATABASE cio_db" -U postgres
-  - psql -c "CREATE USER cio WITH PASSWORD 'cio123'" -U postgres 
+  - psql -c "CREATE DATABASE cio_db;" -U postgres
+  - psql -c "CREATE USER cio WITH PASSWORD 'cio123';" -U postgres 
