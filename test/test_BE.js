@@ -57,7 +57,7 @@ tape('check the admin page route', (t) => {
 //test the /article ( Article Page ) route
 tape('check the article page route', (t) => {
   supertest(app)
-    .get('/article')
+    .get('/article/1')
     .expect(200)
     .expect('Content-Type', /html/)
     .end((err, res) => {
