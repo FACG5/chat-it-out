@@ -16,7 +16,7 @@ Router.get('/signIn', signIn.get);
 // Admin Routes
 Router.get('/admin', admin.get);
 
-// Articles Routes
+// Article Routes
 Router.get('/article', article.get);
 
 // Home Routes
