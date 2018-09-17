@@ -102,6 +102,7 @@
     font-weight: bold;
     font-size: 19px;
     margin-bottom: 30px;
+    cursor: pointer;
 }
 .active {
     border: 2px solid #FF8D19 !important;
