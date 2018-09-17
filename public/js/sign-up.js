@@ -4,13 +4,11 @@ const password = document.getElementById("pass");
 const usernameErr = document.getElementById("usernameErr");
 const emailErr = document.getElementById("emailErr");
 const passErr = document.getElementById("passErr");
-const usernameDiv = document.getElementsByClassName("username")[0];
-
 
 // regex validation
 const validUserName = /^[a-zA-Z0-9]{5,}$/;
-const strongPassword = new RegExp("^(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
-const mediumPassword = new RegExp("^(?=.{7,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
+const strongPassword = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+const mediumPassword = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
 const validEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 
@@ -27,7 +25,6 @@ username.addEventListener("input", () => {
     }
 });
 
-
 // email input field validation 
 email.addEventListener("input", () => {
 
@@ -43,24 +40,29 @@ email.addEventListener("input", () => {
 
 //password input field validation 
 password.addEventListener("input", () => {
-    if (password.value.length === 0) {
-        passErr.textContent = "Please fill the empty field";
-    } else {
 
+    if (password.value.length === 0) {
+        passwordAlert('Please Fill All Fields ', 'red');
+    } else {
         if (strongPassword.test(password.value)) {
-            passErr.textContent = "strong";
-            passErr.setAttribute('style', "color:green;");
-        
+            passwordAlert('Strong', 'green');
         }
         else if (mediumPassword.test(password.value)) {
-            passErr.textContent = "Meduim";
-            passErr.setAttribute('style', "color:orange;");
+            passwordAlert('Medium', 'orange');
         }
         else {
-            passErr.textContent = "Weak";
-            passErr.setAttribute('style', "color:red;");
-
+            passwordAlert('Weak', 'red');
         }
     }
 
-})
+});
+
+const passwordAlert = (content, style) => {
+
+    passErr.textContent = content;
+    passErr.setAttribute('style', "color:" + style + ";");
+
+}
+
+
+
