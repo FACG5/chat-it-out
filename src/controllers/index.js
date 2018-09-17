@@ -13,9 +13,12 @@ Router.get('/', home.get);
 
 // Sign up Routes
 Router.get('/signUp', signUp.get);
-Router.post('/signUp',signUp.post)
+Router.post('/signUp', signUp.post);
+
 // Sign In Routes
-Router.get('/signIn', signIn.get);
+Router.route('/signIn')
+    .get(signIn.get)
+    .post(signIn.post);
 
 // Admin Routes
 Router.get('/admin', admin.get);

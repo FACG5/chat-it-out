@@ -31,7 +31,7 @@ const addUser = (userObj, res) => {
   hasingPassword(userObj.password, res, (result, res) => {
     const UserData = Object.assign({}, userObj);
     UserData.password = result;
-    addUserDB(UserData, (err, result) => {
+    addUserDB(UserData, (err) => {
       if (err) {
         if (err.code === '23505') { res.send({ Error: 'The Email Or Username Taken' }); } else {
           res.send({ Error: 'There Is Error' });
