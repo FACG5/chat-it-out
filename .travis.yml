@@ -2,3 +2,12 @@
 language: node_js
 node_js:
 - node
+
+services:
+  - postgresql
+env:
+  global:
+  - PGPORT=5432
+before_script:
+  - psql -c "CREATE DATABASE cio_db;" -U postgres
+  - psql -c "CREATE USER cio WITH PASSWORD 'cio123';" -U postgres 
