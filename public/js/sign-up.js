@@ -56,8 +56,12 @@ const collectData = () => ({
   email: email.value,
 });
 
+
+const handleResponse = (response) => {
+  if (response.Error) { passwordAlert(response.Error, 'red;font-weight:500;'); } else { window.location = response.result; }
+};
+
 btn.addEventListener('click', () => {
-  console.log(collectData());
   if ((strongPassword.test(password.value)
     || mediumPassword.test(password.value))
     && validEmail.test(email.value)
@@ -72,8 +76,3 @@ btn.addEventListener('click', () => {
       .catch((err) => { console.log(err); });
   }
 });
-
-
-const handleResponse = (response) => {
-  if (response.Error) { passwordAlert(response.Error, 'red;font-weight:500;'); } else { window.location = response.result; }
-};

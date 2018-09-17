@@ -20,18 +20,18 @@ const vaildUserObject = userObj => (vaildPassword(userObj) && vaildUsername(user
 // hasing password
 const hasingPassword = (password, res, callback) => {
   bcrypt.genSalt(10, (err, salt) => {
-    bcrypt.hash(password, salt, (err, result) => {
-      if (err) { res.send({ Error: 'There Is Error , Sorry ' }); } else { callback(result, res); }
+    bcrypt.hash(password, salt, (errHash, result) => {
+      if (errHash) { res.send({ Error: 'There Is Error , Sorry ' }); } else { callback(result, res); }
     });
   });
 };
 
 // Add User Object to Data Base
 const addUser = (userObj, res) => {
-  hasingPassword(userObj.password, res, (result, res) => {
+  hasingPassword(userObj.password, res, (result) => {
     const UserData = Object.assign({}, userObj);
     UserData.password = result;
-    addUserDB(UserData, (err, result) => {
+    addUserDB(UserData, (err) => {
       if (err) {
         if (err.code === '23505') { res.send({ Error: 'The Email Or Username Taken' }); } else {
           res.send({ Error: 'There Is Error' });
