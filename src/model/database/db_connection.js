@@ -2,11 +2,9 @@ const { Pool } = require('pg');
 const url = require('url');
 require('env2')('./config.env');
 
-const dburl = '';
-dburl = process.env.DB_URL;
-if (!dburl) throw new Error('DB_URL MISSING');
+if (!process.env.DB_URL) throw new Error('DB_URL MISSING');
 
-const params = url.parse(dburl);
+const params = url.parse(process.env.DB_URL);
 const [username, password] = params.auth.split(':');
 
 const options = {
