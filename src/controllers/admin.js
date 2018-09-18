@@ -1,3 +1,5 @@
+const { insertArticle } = require('../model/queries/addData');
+
 exports.get = (req, res) => {
   console.log(res.locals.unlockCookie);
   if (res.locals.unlockCookie.permission === 'admin') {
@@ -8,4 +10,8 @@ exports.get = (req, res) => {
     res.clearCookie('jwt');
     res.redirect('/signIn');
   }
+};
+
+exports.addArticle = (req, res) => {
+  insertArticle(req.body).then((result) => { res.json((result.rows[0])); });
 };

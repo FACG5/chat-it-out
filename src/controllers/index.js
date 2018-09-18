@@ -21,6 +21,7 @@ Router.route('/signIn')
 
 // Admin Routes
 Router.get('/admin', admin.get);
+Router.post('/admin/addArticle', admin.addArticle);
 
 // Article Routes
 Router.get('/article/:id', article.get);
