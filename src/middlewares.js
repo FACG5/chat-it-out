@@ -4,15 +4,15 @@ const unlockCookie = (req, res, next) => {
   if (req.cookies.jwt) {
     jwt.verify(req.cookies.jwt, process.env.SECRET, (err, decoded) => {
       if (err) {
-        req.unlockCookie = null;
+        res.locals.unlockCookie = null;
       } else if (decoded) {
-        req.unlockCookie = decoded;
+        res.locals.unlockCookie = decoded;
       } else {
-        req.unlockCookie = null;
+        res.locals.unlockCookie = null;
       }
     });
   } else {
-    req.unlockCookie = null;
+    res.locals.unlockCookie = null;
   }
   next();
 };

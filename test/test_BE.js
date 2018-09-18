@@ -26,9 +26,10 @@ tape('test for home route ', (t) => {
 
 // test the /doctors  ( Doctors Page )route
 tape('Check /doctors Route', (t) => {
-  dbBuild((err, result)=>{
-    if (err)
+  dbBuild((err) => {
+    if (err) {
       t.end();
+    }
     supertest(app)
       .get('/doctors')
       .expect(200)
@@ -42,7 +43,7 @@ tape('Check /doctors Route', (t) => {
         t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'The Response Should Be Html Page');
         t.end();
       });
-  })
+  });
 });
 
 // test the /admin ( Admin Page ) route

@@ -34,7 +34,7 @@ const getUser = (object, res) => {
 
 // Get Route
 exports.get = (req, res) => {
-  if ((req.unlockCookie === null)) {
+  if ((res.locals.unlockCookie === null)) {
     res.render('sign-in', {
       title: 'Sign-in', headerFound: false, footerFound: false, asideFound: false, style: ['signUpIn'], javascript: ['sign-in'],
     });

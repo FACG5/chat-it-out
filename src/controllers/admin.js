@@ -1,7 +1,7 @@
 exports.get = (req, res) => {
-  if (req.unlockCookie.permission === 'admin') {
+  if (res.locals.unlockCookie.permission === 'admin') {
     res.render('admin', {
-      title: 'Admin Panel', headerFound: true, footerFound: true, asideFound: true, style: ['admin', 'header', 'footer'], javascript: ['hamburger', 'admin'], login: (req.unlockCookie === null), username: (req.unlockCookie === null) ? 'Unkown' : req.unlockCookie.username,
+      title: 'Admin Panel', headerFound: true, footerFound: true, asideFound: true, style: ['admin', 'header', 'footer'], javascript: ['hamburger', 'admin'], login: (res.locals.unlockCookie === null), username: (res.locals.unlockCookie === null) ? 'Unkown' : res.locals.unlockCookie.username,
     });
   } else {
     res.clearCookie('jwt');
