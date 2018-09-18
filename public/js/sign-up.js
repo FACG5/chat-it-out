@@ -32,10 +32,12 @@ email.addEventListener('input', () => {
   } else emailErr.textContent = '';
 });
 
+// Alert For Error
 const passwordAlert = (content, style) => {
   passErr.textContent = content;
   passErr.setAttribute('style', `color:${style};`);
 };
+
 // password input field validation
 password.addEventListener('input', () => {
   if (password.value.length === 0) {
@@ -49,18 +51,20 @@ password.addEventListener('input', () => {
   }
 });
 
-
+// Collect Data From Fields ;
 const collectData = () => ({
   username: username.value,
   password: password.value,
   email: email.value,
 });
 
+// Handle Response from BE ;
 
 const handleResponse = (response) => {
   if (response.Error) { passwordAlert(response.Error, 'red;font-weight:500;'); } else { window.location = response.result; }
 };
 
+// Send User Object to BE ;
 btn.addEventListener('click', () => {
   if ((strongPassword.test(password.value)
     || mediumPassword.test(password.value))
@@ -73,6 +77,8 @@ btn.addEventListener('click', () => {
       body: JSON.stringify(collectData()),
     })).then(res => res.json())
       .then(handleResponse)
-      .catch((err) => { console.log(err); });
+      .catch(() => {
+        passwordAlert('Sorry There Is Error');
+      });
   }
 });
