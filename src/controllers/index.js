@@ -1,4 +1,3 @@
-
 const Router = require('express').Router();
 const home = require('./home');
 const admin = require('./admin');

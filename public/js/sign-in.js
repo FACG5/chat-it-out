@@ -36,11 +36,11 @@ btn.addEventListener('click', () => {
     })).then(res => res.json())
       .then((res) => {
         if (res.Error) {
-          passErr.textContent = res.Error; 
-          setTimeout(() => console.log('Hi All '), 2000);
-        }
-        else { window.location = '/'; }
+          passErr.textContent = res.Error;
+        } else { window.location = '/'; }
       })
-      .catch(err => console.log(err));
+      .catch(() => {
+        passErr.textContent = 'There Is Error , Sorry';
+      });
   }
 });

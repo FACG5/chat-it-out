@@ -58,14 +58,13 @@ const collectData = () => ({
   email: email.value,
 });
 
-// Handle Response from BE 
+// Handle Response from BE ;
 const handleResponse = (response) => {
   if (response.Error) { passwordAlert(response.Error, 'red;font-weight:500;'); } else { window.location = response.result; }
 };
 
 // Send User Object to BE ;
 btn.addEventListener('click', () => {
-  console.log(collectData());
   if ((strongPassword.test(password.value)
     || mediumPassword.test(password.value))
     && validEmail.test(email.value)
@@ -77,6 +76,8 @@ btn.addEventListener('click', () => {
       body: JSON.stringify(collectData()),
     })).then(res => res.json())
       .then(res => handleResponse(res))
-      .catch((err) => { console.log(err); });
+      .catch(() => {
+        passwordAlert('Sorry There Is Error');
+      });
   }
 });
