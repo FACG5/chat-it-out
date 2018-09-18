@@ -1,4 +1,9 @@
-.errorContainer{
-  margin: 0 auto;
-  padding: 100px 100px;
+@import url('https://fonts.googleapis.com/css?family=Monda');
+
+h1{
+  font-family: 'Monda',monospace;
+}
+
+p{
+  font-family: 'Monda',monospace;
 }
