@@ -9,7 +9,7 @@ exports.get = (req, res, next) => {
         footerFound: true,
         style: ['article', 'header', 'footer', 'public'],
         javascript: ['hambruger'],
-        article: result.rows[0]
+        article: result.rows[0],
       });
     }).catch((error) => {
       next(error);
