@@ -7,8 +7,9 @@ exports.get = (req, res, next) => {
         title: 'Articles ',
         headerFound: true,
         footerFound: true,
+        asideFound: true,
         style: ['articles', 'header', 'footer', 'public'],
-        javascript: ['hambruger'],
+        javascript: ['hamburger'],
         articlesArray: result.rows,
       });
     }).catch((error) => {

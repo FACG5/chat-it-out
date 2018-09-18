@@ -59,6 +59,7 @@ const collectData = () => ({
 });
 
 // Handle Response from BE ;
+
 const handleResponse = (response) => {
   if (response.Error) { passwordAlert(response.Error, 'red;font-weight:500;'); } else { window.location = response.result; }
 };
