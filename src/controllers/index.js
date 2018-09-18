@@ -22,7 +22,7 @@ Router.get('/admin', admin.get);
 Router.post('/admin/addArticle', admin.addArticle);
 
 // Article Routes
-Router.get('/article', article.get);
+Router.get('/article/:id', article.get);
 
 // Home Routes
 Router.get('/', home.get);
@@ -34,4 +34,3 @@ Router.get('/doctors', doctors.get);
 Router.get('/articles', articles.get);
 
 module.exports = Router;
-
