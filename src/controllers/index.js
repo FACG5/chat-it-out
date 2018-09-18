@@ -6,9 +6,13 @@ const articles = require('./articles');
 const doctors = require('./doctors');
 const signUp = require('./signUp');
 const signIn = require('./signIn');
+const chat = require('./chat');
 
 // Home Route
 Router.get('/', home.get);
+
+// Chat Routes
+Router.get('/chat', chat.get);
 
 // Sign up Routes
 Router.get('/signUp', signUp.get);
