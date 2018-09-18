@@ -10,8 +10,12 @@
             <li><a href="#">Chat</a></li>
             <li><a href="#">Articles</a></li>
             <li><a href="#">About Us</a></li>
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Sign Up</a></li>
+            {{#if login}}
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Sign Up</a></li>
+            {{else}}
+                <li><a href="/">{{username}}</a></li>
+            {{/if}}
         </ul>
     </nav>
 

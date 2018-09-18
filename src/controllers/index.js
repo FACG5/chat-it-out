@@ -17,8 +17,8 @@ Router.post('/signUp', signUp.post);
 
 // Sign In Routes
 Router.route('/signIn')
-    .get(signIn.get)
-    .post(signIn.post);
+  .get(signIn.get)
+  .post(signIn.post);
 
 // Admin Routes
 Router.get('/admin', admin.get);
@@ -36,4 +36,3 @@ Router.get('/doctors', doctors.get);
 Router.get('/articles', articles.get);
 
 module.exports = Router;
-

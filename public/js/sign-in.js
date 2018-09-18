@@ -28,7 +28,7 @@ const collectData = () => ({
 });
 
 btn.addEventListener('click', () => {
- if (username.value && password.value) {
+  if (username.value && password.value) {
     fetch('/signIn', ({
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -36,8 +36,8 @@ btn.addEventListener('click', () => {
     })).then(res => res.json())
       .then((res) => {
         if (res.Error) {
-          passErr.textContent = (res.Error); 
-          setTimeout(()=> {passErr.textContent=''},2000);
+          passErr.textContent = res.Error; 
+          setTimeout(() => console.log('Hi All '), 2000);
         }
         else { window.location = '/'; }
       })
