@@ -17,12 +17,17 @@ article.addEventListener('click', () => {
       body: JSON.stringify(obj),
     }).then(response => response.json())
       .then((res) => {
-        form.innerHTML = '<h1>The post has been sent successfully</h1>';
+        const success = document.createElement('h1');
+        success.textContent = 'The post has been sent successfully';
+        form.textContent = '';
+        form.appendChild(success);
         setTimeout(() => {
           window.location = '/admin';
         }, 1000);
       })
-      .catch(error => console.error('Error:', error));
+      .catch(error => {
+        form.textContent = '' + 'Internal server error';
+      });
   } else {
     err.textContent = 'Please enter the empty fields';
   }

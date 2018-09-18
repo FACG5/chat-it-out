@@ -7,5 +7,5 @@ exports.get = (req, res) => {
 };
 
 exports.addArticle = (req, res) => {
-  insertArticle(req.body).then((result) => { res.send(JSON.stringify(result.rows[0])); });
+  insertArticle(req.body).then((result) => { res.json((result.rows[0])); });
 };
