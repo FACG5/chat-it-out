@@ -1,11 +1,11 @@
 const tape = require('tape');
 const supertest = require('supertest');
 const app = require('./../src/app.js');
-const dbBuild = require('./../src/model/database/dbBuild');
+const dbBuild = require('./../src/model/database/db_build');
 const db_demo_build = require('./../src/model/database/db_demo_build');
 const addUser = require('./../src/model/queries/addUser');
 
-//test the / ( Home Page )route
+// test the / ( Home Page )route
 tape('test for home route ', (t) => {
   supertest(app)
     .get('/')
@@ -22,7 +22,7 @@ tape('test for home route ', (t) => {
     });
 });
 
-//test the /doctors  ( Doctors Page )route
+// test the /doctors  ( Doctors Page )route
 tape('Check /doctors Route', (t) => {
   dbBuild((err, result) => {
     if (err)
@@ -40,7 +40,7 @@ tape('Check /doctors Route', (t) => {
         t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'The Response Should Be Html Page');
         t.end();
       });
-  })
+  });
 });
 
 // test the /admin ( Admin Page ) route
