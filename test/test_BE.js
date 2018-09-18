@@ -139,7 +139,7 @@ tape(' Check The Sign Up Page Route', (t) => {
       t.ok(res.text.includes('signup'));
       t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'The Response Should Be Html Page');
       t.end();
-    })
+    });
 });
 
 // test /sign up (add user ) Route
@@ -148,7 +148,7 @@ tape('Check Adding Taken User To DB', (t) => {
     dbDemoBuild(() => {
       supertest(app)
         .post('/signUp')
-        .send({ username: 'ahmed', email: 'a2hmed@ahmed.com', password: '123456789Q' })
+        .send({ username: 'ahmed', email: 'ahmed@ahmed.com', password: '123456789Q' })
         .expect('Content-Type', /json/)
         .expect(200)
         .end((err, response) => {

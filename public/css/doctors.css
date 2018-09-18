@@ -28,10 +28,10 @@ main section .container .doctors .doctor .img{
     width: 250px;
     margin: 0 auto;
     height: 250px;
-    background-image:url('https://myblue.bluecrossma.com/sites/g/files/csphws636/files/inline-images/Doctor%20Image%20Desktop.png');
     background-position: center;
     background-size: cover;
     border-radius: 50%;
+    display: block;
 }
 /******************** Brief Of Doctor ********************/
 main section .container .doctors .doctor article{
