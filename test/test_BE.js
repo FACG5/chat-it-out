@@ -1,7 +1,7 @@
 const tape = require('tape');
 const supertest = require('supertest');
 const app = require('./../src/app.js');
-const db_build = require('./../src/model/database/db_build');
+const dbBuild = require('./../src/model/database/dbBuild');
 const db_demo_build = require('./../src/model/database/db_demo_build');
 const addUser = require('./../src/model/queries/addUser');
 
@@ -24,22 +24,26 @@ tape('test for home route ', (t) => {
 
 //test the /doctors  ( Doctors Page )route
 tape('Check /doctors Route', (t) => {
-  supertest(app)
-    .get('/doctors')
-    .expect(200)
-    .expect('Content-type', /html/)
-    .end((err, res) => {
-      if (err) {
-        t.error(err);
-      }
-      t.ok(res.text.includes('body'));
-      t.ok(res.text.includes('doctors'));
-      t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'The Response Should Be Html Page');
+  dbBuild((err, result) => {
+    if (err)
       t.end();
-    });
+    supertest(app)
+      .get('/doctors')
+      .expect(200)
+      .expect('Content-type', /html/)
+      .end((err, res) => {
+        if (err) {
+          t.error(err);
+        }
+        t.ok(res.text.includes('body'));
+        t.ok(res.text.includes('doctors'));
+        t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'The Response Should Be Html Page');
+        t.end();
+      });
+  })
 });
 
-//test the /admin ( Admin Page ) route
+// test the /admin ( Admin Page ) route
 tape('check the admin page route', (t) => {
   supertest(app)
     .get('/admin')
@@ -55,10 +59,10 @@ tape('check the admin page route', (t) => {
     });
 });
 
-//test the /article ( Article Page ) route
+// test the /article ( Article Page ) route
 tape('check the article page route', (t) => {
   supertest(app)
-    .get('/article')
+    .get('/article/1')
     .expect(200)
     .expect('Content-Type', /html/)
     .end((err, res) => {
@@ -72,18 +76,22 @@ tape('check the article page route', (t) => {
 });
 
 tape('check the articles page route', (t) => {
-  supertest(app)
-    .get('/articles')
-    .expect(200)
-    .expect('Content-Type', /html/)
-    .end((err, res) => {
-      if (err) {
-        t.error(err);
-      }
-      t.ok(res.text.includes('body'));
-      t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'the respone  should be html file');
+  dbBuild((err, result) => {
+    if (err)
       t.end();
-    });
+    supertest(app)
+      .get('/articles')
+      .expect(200)
+      .expect('Content-Type', /html/)
+      .end((err, res) => {
+        if (err) {
+          t.error(err);
+        }
+        t.ok(res.text.includes('body'));
+        t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'the respone  should be html file');
+        t.end();
+      });
+  });
 });
 
 //test the /signIn ( Login Page ) Route
@@ -102,7 +110,7 @@ tape(' Check The Sign in Page Route', (t) => {
     });
 });
 
-//test the /signUp (Sign Up Page ) Route
+// test the /signUp (Sign Up Page ) Route
 tape(' Check The Sign Up Page Route', (t) => {
   supertest(app)
     .get('/signUp')
@@ -120,7 +128,7 @@ tape(' Check The Sign Up Page Route', (t) => {
 
 //test /sign up (add user ) Route
 tape('Check Adding Taken User To DB', (t) => {
-  db_build((err, result) => {
+  dbBuild((err, result) => {
     db_demo_build((err, result) => {
       supertest(app)
         .post('/signUp')
@@ -140,7 +148,7 @@ tape('Check Adding Taken User To DB', (t) => {
 
 //test /sign up (add user ) Route
 tape('Check Adding Taken Email To DB', (t) => {
-  db_build((err, result) => {
+  dbBuild((err, result) => {
     db_demo_build((err, result) => {
       supertest(app)
         .post('/signUp')
@@ -160,7 +168,7 @@ tape('Check Adding Taken Email To DB', (t) => {
 
 //test /sign up (add user ) Route
 tape('Check Adding Right User To DB', (t) => {
-  db_build((err, result) => {
+  dbBuild((err, result) => {
     db_demo_build((err, result) => {
       supertest(app)
         .post('/signUp')
@@ -179,7 +187,7 @@ tape('Check Adding Right User To DB', (t) => {
 
 //test /sign up (add user ) Route
 tape('Check Adding Wrogn  User  Object To DB', (t) => {
-  db_build((err, result) => {
+  dbBuild((err, result) => {
     db_demo_build((err, result) => {
       supertest(app)
         .post('/signUp')
@@ -189,7 +197,7 @@ tape('Check Adding Wrogn  User  Object To DB', (t) => {
         .end((err, response) => {
           if (err)
             t.error(err);
-          t.deepEquals(response.text, JSON.stringify({"Error":"There Is Error"}), ' The Result Should Be Error The User Taken');
+          t.deepEquals(response.text, JSON.stringify({ "Error": "There Is Error" }), ' The Result Should Be Error The User Taken');
           t.end();
         });
     });
@@ -199,7 +207,7 @@ tape('Check Adding Wrogn  User  Object To DB', (t) => {
 // Test Add User Query 
 tape(' Check add Right User by AddUser Query ', (t) => {
 
-  db_build((err, result) => {
+  dbBuild((err, result) => {
     db_demo_build((err, result) => {
       addUser({ username: "rami", email: "rami@rami.com", password: "123456789Q" }, (err, result) => {
         if (err)
@@ -216,7 +224,7 @@ tape(' Check add Right User by AddUser Query ', (t) => {
 // Test Add User Query 
 tape(' Check add taken User (username) by AddUser Query ', (t) => {
 
-  db_build((err, result) => {
+  dbBuild((err, result) => {
     db_demo_build((err, result) => {
       addUser({ username: "ahmed", email: "rami@rami.com", password: "123456789Q" }, (err, result) => {
         t.equal(err['code'], '23505', ' the error code should eqaul 23505');
@@ -230,7 +238,7 @@ tape(' Check add taken User (username) by AddUser Query ', (t) => {
 // Test Add User Query 
 tape(' Check add taken User (email) by AddUser Query ', (t) => {
 
-  db_build((err, result) => {
+  dbBuild((err, result) => {
     db_demo_build((err, result) => {
       addUser({ username: "rami", email: "ahmed@ahmed.com", password: "123456789Q" }, (err, result) => {
         t.equal(err['code'], '23505', ' the error code should eqaul 23505');
@@ -244,7 +252,7 @@ tape(' Check add taken User (email) by AddUser Query ', (t) => {
 // Test Add User Query 
 tape(' Check add Wrong Object by AddUser Query ', (t) => {
 
-  db_build((err, result) => {
+  dbBuild((err, result) => {
     db_demo_build((err, result) => {
       addUser({ username: "rami" }, (err, result) => {
         t.ok(err);

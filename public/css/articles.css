@@ -67,7 +67,7 @@ main .container .articles .article .article_img .middle_button {
   text-align: center;
 }
 
-main .container .articles .article .article_img .middle_button .read_more {
+main .container .articles .article .article_img .middle_button .read_more  {
   padding: 5px 10px;
   border: none;
   background-color: #4AADF6;
@@ -78,7 +78,10 @@ main .container .articles .article .article_img .middle_button .read_more {
   border-radius: 2px;
   transition: .4s;
 }
-
+main .container .articles .article .article_img .middle_button .read_more a {
+  text-decoration: none;
+  color: #fff;
+}
 main .container .articles .article .article_img:hover .middle_button {
   opacity: 1;
 }
