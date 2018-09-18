@@ -12,7 +12,3 @@ before_script:
   - npm i 
   - psql -c "CREATE DATABASE cio_db;" -U postgres
   - psql -c "CREATE USER cio WITH PASSWORD 'cio123';" -U postgres 
-<<<<<<< HEAD
-  
-=======
->>>>>>> 9e40adf883cfabdf3635ea9360bd4b00f0687fc0
