@@ -26,19 +26,23 @@ tape('test for home route ', (t) => {
 
 // test the /doctors  ( Doctors Page )route
 tape('Check /doctors Route', (t) => {
-  supertest(app)
-    .get('/doctors')
-    .expect(200)
-    .expect('Content-type', /html/)
-    .end((err, res) => {
-      if (err) {
-        t.error(err);
-      }
-      t.ok(res.text.includes('body'));
-      t.ok(res.text.includes('doctors'));
-      t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'The Response Should Be Html Page');
+  dbBuild((err, result)=>{
+    if (err)
       t.end();
-    });
+    supertest(app)
+      .get('/doctors')
+      .expect(200)
+      .expect('Content-type', /html/)
+      .end((err, res) => {
+        if (err) {
+          t.error(err);
+        }
+        t.ok(res.text.includes('body'));
+        t.ok(res.text.includes('doctors'));
+        t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'The Response Should Be Html Page');
+        t.end();
+      });
+  })
 });
 
 // test the /admin ( Admin Page ) route
@@ -78,7 +82,7 @@ tape('check user without admin permission', (t) => {
 // test the /article ( Article Page ) route
 tape('check the article page route', (t) => {
   supertest(app)
-    .get('/article')
+    .get('/article/1')
     .expect(200)
     .expect('Content-Type', /html/)
     .end((err, res) => {
@@ -94,18 +98,23 @@ tape('check the article page route', (t) => {
 
 // test the /articles (Articles Page ) route
 tape('check the articles page route', (t) => {
-  supertest(app)
-    .get('/articles')
-    .expect(200)
-    .expect('Content-Type', /html/)
-    .end((err, res) => {
-      if (err) {
-        t.error(err);
-      }
-      t.ok(res.text.includes('body'));
-      t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'the respone  should be html file');
+  dbBuild((err) => {
+    if (err) {
       t.end();
-    });
+    }
+    supertest(app)
+      .get('/articles')
+      .expect(200)
+      .expect('Content-Type', /html/)
+      .end((err, res) => {
+        if (err) {
+          t.error(err);
+        }
+        t.ok(res.text.includes('body'));
+        t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'the respone  should be html file');
+        t.end();
+      });
+  });
 });
 
 // test the /signIn ( Login Page ) Route

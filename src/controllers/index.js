@@ -23,7 +23,7 @@ Router.route('/signIn')
 Router.get('/admin', admin.get);
 
 // Article Routes
-Router.get('/article', article.get);
+Router.get('/article/:id', article.get);
 
 // Home Routes
 Router.get('/', home.get);
