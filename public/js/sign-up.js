@@ -75,7 +75,7 @@ btn.addEventListener('click', () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(collectData()),
     })).then(res => res.json())
-      .then(res => handleResponse(res))
+      .then(handleResponse)
       .catch(() => {
         passwordAlert('Sorry There Is Error');
       });
