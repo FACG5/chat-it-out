@@ -11,6 +11,8 @@ exports.get = (req, res, next) => {
         style: ['articles', 'header', 'footer', 'public'],
         javascript: ['hamburger'],
         articlesArray: result.rows,
+        login: (res.locals.unlockCookie === null),
+        username: (res.locals.unlockCookie === null) ? 'Unkown' : (res.locals.unlockCookie.username),
       });
     }).catch((error) => {
       next(error);
