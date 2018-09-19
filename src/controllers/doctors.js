@@ -10,6 +10,8 @@ exports.get = (req, res) => {
       style: ['doctors', 'header', 'footer'],
       javascript: ['hamburger'],
       arrayOfDoctors: result.rows,
+      login: (res.locals.unlockCookie === null),
+      username: (res.locals.unlockCookie === null) ? 'Unkown' : (res.locals.unlockCookie.username),
     });
   });
 };

@@ -100,6 +100,10 @@ aside .side span{
     border-bottom:.2px #eee solid;
     cursor: pointer;
 }
+aside .side span a {
+    text-decoration: none;
+    color: #eee;
+}
 aside .hide_aside{
     width: 80%;
     height: 100vh;
