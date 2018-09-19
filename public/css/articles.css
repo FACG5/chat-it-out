@@ -23,7 +23,7 @@ main h1 {
 main .container .articles {
   display: flex;
   justify-content: space-between;
-  margin-top: 50px;
+  margin: 50px 0 60px;
   flex-wrap: wrap;
 }
 
@@ -37,17 +37,19 @@ main .container .articles .article .article_img {
   height: 70%;
   background: black;
   position: relative;
+  border-radius: 20px;
 }
 
 main .container .articles .article .article_img img {
   width: 100%;
   height: 100%;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.7);
 }
-
 main .container .articles .article .article_img:hover img {
   background-color: rgba(0, 0, 0, .5);
   opacity: 0.3;
-  transition-duration: .4s ease;
+  transition-duration: .8s ease;
 }
 
 main .container .articles .article .article_title {
