@@ -21,7 +21,8 @@
     "env2": "^2.2.2",
     "bcryptjs":"*",
     "jsonwebtoken":"*",
-    "cookie-parser":"*"
+    "cookie-parser":"*",
+    "socket.io":"*"
   },
   "devDependencies": {
     "eslint": "^5.5.0",

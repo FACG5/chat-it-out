@@ -10,6 +10,8 @@ exports.get = (req, res, next) => {
         style: ['article', 'header', 'footer', 'public'],
         javascript: ['hambruger'],
         article: result.rows[0],
+        login: (res.locals.unlockCookie === null),
+        username: (res.locals.unlockCookie === null) ? 'Unkown' : res.locals.unlockCookie.username,
       });
     }).catch((error) => {
       next(error);

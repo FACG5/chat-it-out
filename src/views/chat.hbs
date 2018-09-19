@@ -1,0 +1,37 @@
+<div class="alter_header" id="alter_header">
+    <i class="fas fa-chevron-left" id="back_btn"></i>
+    <span class="username">rami rami rami</span>
+    <span class="live_logo">
+        <span class="live_circle"></span>
+        <span class="live_word">Live</span>
+    </span>
+</div>
+
+<div class="main_section">
+    <div class="last_messages" id="last_messages">
+        <div class="header">
+            <span> Users List </span>
+        </div>
+        <ul id="messages">
+            {{#users}}
+            <li username="{{this.username}}" id="{{this.token}}">
+                <div class="message">
+                    <span class="username">{{this.username}}</span>
+                </div>
+            </li>
+            {{/users}}
+        </ul>
+    </div>
+
+    <div class="messenger" id="messenger" username="" token="">
+        <div class="header">
+            <span id="username">Messenger</span>
+        </div>
+        <div class="messenger_space" id="messenger_space">
+            
+        </div>
+        <div class="message_sender">
+            <input type="text" id="message_sender" placeholder="Type A Message ...">
+        </div>
+    </div>
+</div>
