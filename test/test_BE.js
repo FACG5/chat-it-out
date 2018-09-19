@@ -101,7 +101,7 @@ tape('check the article page route', (t) => {
 tape('check the articles page route', (t) => {
   dbBuild((err) => {
     if (err) {
-      t.end();
+      return t.end();
     }
     supertest(app)
       .get('/articles')
@@ -127,11 +127,12 @@ tape(' Check The Sign in Page Route', (t) => {
     .end((err, res) => {
       if (err) {
         t.error(err);
+      } else {
+        t.ok(res.text.includes('body'));
+        t.ok(res.text.includes('login'));
+        t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'The Response Should Be Html Page');
+        t.end();
       }
-      t.ok(res.text.includes('body'));
-      t.ok(res.text.includes('login'));
-      t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'The Response Should Be Html Page');
-      t.end();
     });
 });
 
@@ -144,11 +145,12 @@ tape(' Check The Sign Up Page Route', (t) => {
     .end((err, res) => {
       if (err) {
         t.error(err);
+      } else {
+        t.ok(res.text.includes('body'));
+        t.ok(res.text.includes('signup'));
+        t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'The Response Should Be Html Page');
+        t.end();
       }
-      t.ok(res.text.includes('body'));
-      t.ok(res.text.includes('signup'));
-      t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'The Response Should Be Html Page');
-      t.end();
     });
 });
 
@@ -164,9 +166,10 @@ tape('Check Adding Taken User To DB', (t) => {
         .end((err, response) => {
           if (err) {
             t.error(err);
+          } else {
+            t.deepEquals(response.text, JSON.stringify({ Error: 'The Email Or Username Taken' }), ' The Result Should Be Error The User Taken');
+            t.end();
           }
-          t.deepEquals(response.text, JSON.stringify({ Error: 'The Email Or Username Taken' }), ' The Result Should Be Error The User Taken');
-          t.end();
         });
     });
   });
@@ -184,9 +187,10 @@ tape('Check Adding Taken Email To DB', (t) => {
         .end((err, response) => {
           if (err) {
             t.error(err);
+          } else {
+            t.deepEquals(response.text, JSON.stringify({ Error: 'The Email Or Username Taken' }), ' The Result Should Be Error The User Taken');
+            t.end();
           }
-          t.deepEquals(response.text, JSON.stringify({ Error: 'The Email Or Username Taken' }), ' The Result Should Be Error The User Taken');
-          t.end();
         });
     });
 
@@ -205,9 +209,10 @@ tape('Check Adding Right User To DB', (t) => {
         .end((err, response) => {
           if (err) {
             t.error(err);
+          } else {
+            t.deepEquals(response.text, JSON.stringify({ result: '/signIn' }), ' The Result Should Be Error The User Taken');
+            t.end();
           }
-          t.deepEquals(response.text, JSON.stringify({ result: '/signIn' }), ' The Result Should Be Error The User Taken');
-          t.end();
         });
     });
   });
@@ -225,9 +230,10 @@ tape('Check Adding Wrogn  User  Object To DB', (t) => {
         .end((err, response) => {
           if (err) {
             t.error(err);
+          } else {
+            t.deepEquals(response.text, JSON.stringify({ Error: 'There Is Error' }), ' The Result Should Be Error The User Taken');
+            t.end();
           }
-          t.deepEquals(response.text, JSON.stringify({ Error: 'There Is Error' }), ' The Result Should Be Error The User Taken');
-          t.end();
         });
     });
   });

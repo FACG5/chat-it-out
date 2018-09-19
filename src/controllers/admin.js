@@ -8,11 +8,11 @@ exports.get = (req, res) => {
       });
     } else {
       res.clearCookie('jwt');
-      res.redirect('/signIn');
+      res.redirect('/');
     }
   } else {
     res.clearCookie('jwt');
-    res.redirect('/signIn');
+    res.redirect('/signin');
   }
 };
 

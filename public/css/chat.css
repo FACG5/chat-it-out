@@ -60,8 +60,11 @@ main .main_section .search .header{
 }
 main .main_section .last_messages ul{
     width: 100%;
+    overflow: auto;
+    padding-bottom: 50px;
 }
 main .main_section .last_messages ul li{
+    list-style: none;
     width: 95%;
     margin: 0 auto;
     box-shadow: 0 0 5px 0 rgba(0,0,0,.5);
@@ -150,6 +153,12 @@ main .main_section .messenger .message_sender input::placeholder{
     margin: 0 auto;
     margin-top: 2%;
     margin-bottom:1%;
+    padding:15px;
+    overflow: auto;
+}
+
+.messenger_space::-webkit-scrollbar{
+    display: none;
 }
 .messenger_space .message{
     width: 100%;

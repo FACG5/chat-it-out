@@ -12,8 +12,9 @@ const chat = require('./chat');
 Router.get('/', home.get);
 
 // Chat Routes
-Router.get('/chat', chat.get);
-
+Router.route('/chat')
+  .get(chat.get)
+  .post(chat.post);
 // Sign up Routes
 Router.get('/signUp', signUp.get);
 Router.post('/signUp', signUp.post);
