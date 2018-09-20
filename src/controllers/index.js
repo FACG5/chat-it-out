@@ -6,9 +6,13 @@ const articles = require('./articles');
 const doctors = require('./doctors');
 const signUp = require('./signUp');
 const signIn = require('./signIn');
+const contactUs = require('./contactUs');
+const signOut = require('./signOut');
 
 // Home Route
 Router.get('/', home.get);
+//contact us Route
+Router.post('/contactUs',contactUs.post);
 
 // Sign up Routes
 Router.get('/signUp', signUp.get);
@@ -18,6 +22,9 @@ Router.post('/signUp', signUp.post);
 Router.route('/signIn')
   .get(signIn.get)
   .post(signIn.post);
+
+//sign out
+Router.get('/signOut', signOut.get)
 
 // Admin Routes
 Router.get('/admin', admin.get);
