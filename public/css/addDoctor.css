@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 @import url('https://fonts.googleapis.com/css?family=Oswald:200');
-.admin .container{
+.adddoctor .container{
     width: 80%;
     margin: 0 auto;
     margin-top: 100px;
 }
-.admin .container .boxes {
+.adddoctor .container .boxes {
     text-align: center;
     display: flex;
     justify-content: space-between;
@@ -13,7 +13,7 @@
     margin: 0 auto 30px;
     font-family: 'Lato', sans-serif;
 }
-.admin .container .boxes .box {
+.adddoctor .container .boxes .box {
     border: 2px solid #000;
     border-radius: 4px;
     padding: 30px;
@@ -58,43 +58,49 @@
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
   }
-.admin .container .boxes .box span {
+.adddoctor .container .boxes .box span {
     display: block;
     margin-top: 10px;
     color: #575757
 }
-.admin .container .form {
+.adddoctor .container .form {
     text-align: center;
     font-family: 'Oswald', sans-serif;
     margin-top: 34px;
 }
-.admin .container .form > div {
+.adddoctor .container .form > div {
     margin-bottom: 40px;
 }
-.admin .container .form > div label {
+.adddoctor .container .form > div label {
     font-size: 25px;
     display: block;
     color: #575757;
 }
-.title label {
-    margin-right: 233px;
+.name label {
+    margin-right: 328px;
+}
+.email label {
+    margin-right: 334px;
+}
+.password label {
+    margin-right: 288px;
 }
 .image label {
-    margin-right: 178px;
+    margin-right: 280px;
 }
-.data label {
-    margin-right: 209px;
+.description label {
+    margin-right: 266px;
 }
-.admin .container .form > div input, .admin .container .form > div textarea {
+.adddoctor .container .form > div input, .adddoctor .container .form > div textarea {
     padding: 13px 34px;
     border: 2px solid #575757;
     margin-top: 10px;
     width: 322px;
 }
-.admin .container .form > div textarea {
+.adddoctor .container .form > div textarea {
     height: 150px;;
 }
-.admin .container .form button {
+.adddoctor .container .form button {
     background: #FF8D19;
     border: none;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -114,7 +120,7 @@
 h1 {margin-bottom: 164px;}
 
 @media(max-width: 600px) {
-    .admin .container .boxes {
+    .adddoctor .container .boxes {
         margin: 0 17px 33px;
     }
 }
