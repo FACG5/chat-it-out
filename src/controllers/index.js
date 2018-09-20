@@ -22,6 +22,9 @@ Router.route('/signIn')
 // Admin Routes
 Router.get('/admin', admin.get);
 Router.post('/admin/addArticle', admin.addArticle);
+Router.route('/addDoctor')
+.get(admin.addDoctor)
+.post(admin.addDoctorDB);
 
 // Article Routes
 Router.get('/article/:id', article.get);
