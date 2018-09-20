@@ -5,6 +5,11 @@ exports.getDoctors = () => {
   return db.query(sql);
 };
 
+exports.getDoctor = (id) => {
+  const sql = "SELECT * FROM users WHERE permission = 'doctor' AND user_id = $1";
+  return db.query(sql, [id]);
+};
+
 exports.getArticles = () => {
   const sql = 'SELECT * FROM articles;';
   return db.query(sql);

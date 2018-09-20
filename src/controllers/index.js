@@ -6,6 +6,7 @@ const articles = require('./articles');
 const doctors = require('./doctors');
 const signUp = require('./signUp');
 const signIn = require('./signIn');
+const doctor = require('./doctor');
 
 // Home Route
 Router.get('/', home.get);
@@ -34,5 +35,8 @@ Router.get('/doctors', doctors.get);
 
 // Articles Routes
 Router.get('/articles', articles.get);
+
+// Doctor Routes
+Router.get('/doctors/:id', doctor.get);
 
 module.exports = Router;
