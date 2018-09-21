@@ -3,6 +3,8 @@
 .showcase {
 	background-image: url(http://imamsonline.com/wp-content/uploads/2017/08/mental-health-stigma.jpg);
 	height: 450px;
+	background-attachment: fixed;
+    background-size: cover;
 }
 button{
 	cursor: pointer;
@@ -52,7 +54,11 @@ button{
 	font-weight: 300;
 	font-family: Roboto;
 	margin-top: 30px;
-	padding: 10px 50px;
+	padding: 7px 25px;
+	cursor: pointer;
+}
+.showcase .showcase_Container .content button:hover {
+	background-color: #c3792e;
 }
 
 
@@ -65,7 +71,7 @@ main section>h1:first-child {
 	font-size: 30px;
 	border-bottom: 2px solid #A5A5A5;
 	padding-bottom: 5px;
-	margin: 40px auto;
+	margin: 40px auto 70px;
 }
 
 main section .service_conteainer {
@@ -162,6 +168,11 @@ main section .contact_conteainer .form button {
 	margin: 0 auto;
 	margin-top: 20px;
 	margin-bottom: 200px;
+	margin-left: 80px;
+	cursor: pointer;
+}
+main section .contact_conteainer .form button:hover {
+	background-color: #c3792e;
 }
 
 main section .contact_conteainer .form label input::placeholder {

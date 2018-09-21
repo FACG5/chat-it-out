@@ -9,6 +9,7 @@ const signIn = require('./signIn');
 const chat = require('./chat');
 const signOut = require('./signOut');
 const addSuggestion = require('./suggestion');
+const { clientError, serverError } = require('./error');
 
 // Home Route
 Router.get('/', home.get);
@@ -17,9 +18,7 @@ Router.get('/', home.get);
 Router.route('/chat')
   .get(chat.get)
   .post(chat.post);
-Router.get('/gaza',(req, res) => {
-  console.log('Close the page Every Thing is cool');
-})
+
 // Sign up Routes
 Router.get('/signUp', signUp.get);
 Router.post('/signUp', signUp.post);
@@ -50,5 +49,9 @@ Router.get('/signout', signOut.get);
 
 // Add Suggestions ;
 Router.post('/contactUs', addSuggestion.post);
+
+// Erorr Handling MiddleWare
+Router.use(clientError);
+Router.use(serverError);
 
 module.exports = Router;
