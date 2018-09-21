@@ -7,6 +7,7 @@ const doctors = require('./doctors');
 const signUp = require('./signUp');
 const signIn = require('./signIn');
 const doctor = require('./doctor');
+const { clientError, serverError } = require('./error');
 
 // Home Route
 Router.get('/', home.get);
@@ -38,5 +39,9 @@ Router.get('/articles', articles.get);
 
 // Doctor Routes
 Router.get('/doctors/:id', doctor.get);
+
+// Erorr Handling MiddleWare
+Router.use(clientError);
+Router.use(serverError);
 
 module.exports = Router;
