@@ -19,10 +19,10 @@
     "express-handlebars": "^3.0.0",
     "pg": "^7.4.3",
     "env2": "^2.2.2",
-    "bcryptjs":"*",
-    "jsonwebtoken":"*",
-    "cookie-parser":"*",
-    "socket.io":"*"
+    "bcryptjs": "*",
+    "jsonwebtoken": "*",
+    "cookie-parser": "*",
+    "socket.io": "*"
   },
   "devDependencies": {
     "eslint": "^5.5.0",

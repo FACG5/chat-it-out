@@ -21,6 +21,15 @@ function getCookie(cname, cookies) {
   return '';
 }
 
+// get All Users name in Socket network
+const getAllUsers = () => {
+  const users = { userslist: [] };
+  for (let i = 0; i < socketUsers.length; i++) {
+    users.userslist.push(socketUsers[i].userId);
+  }
+  return users;
+};
+
 // check if username is already make connection and just refreash the page
 const userExists = (userId) => {
   for (let i = 0; i < socketUsers.length; i++) {
@@ -88,20 +97,44 @@ const socketConnection = (io) => {
               if (reciver) {
                 addDB({ sender: decodedCookie.username, reciver: reciver.userId, message: data.message }, userSocket.id, reciver, io, sendMessage);
               } else {
-                addDB({ sender: decodedCookie.username, reciver: reciver.userId, message: data.message }, userSocket.id, io);
+                addDB({ sender: decodedCookie.username, reciver: decoded.username, message: data.message }, userSocket.id, io);
               }
             }
           });
         });
+        // userSocket.on('live', () => {
+        //   io.emit('live', getAllUsers());
+        // });
+
       }
     });
+    io.sockets.emit('live', getAllUsers());
+
+    userSocket.on('disconnect', () => {
+      verify(jwt, process.env.SECRET, (err, decoded) => {
+        if (err) {
+          sendError(io, userSocket.id);
+        } else {
+          const { username } = decoded;
+          userExists(username);
+          io.sockets.emit('live', getAllUsers());
+        }
+      });
+    });
+
   });
+};
+
+const socketDisConnection = (io) => {
+
 };
 
 // Socket Fire (Start Point Just)
 const socketConfig = (server) => {
   const sio = socket(server);
   socketConnection(sio);
+  socketDisConnection(sio);
 };
+
 
 module.exports = socketConfig;

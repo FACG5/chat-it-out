@@ -1,11 +1,13 @@
 const headerTag = document.getElementById('header');
-const userslist = document.getElementById('messages');
+const lastMessages = document.getElementById('messages');
 const messengerSpaceTag = document.getElementById('messenger_space');
 const lastMessagesTag = document.getElementById('last_messages');
 const backBtn = document.getElementById('back_btn');
 const alterHeaderTag = document.getElementById('alter_header');
 const input = document.getElementById('message_sender');
 const messenger = document.getElementById('messenger');
+const userslist = document.getElementById('userslist');
+
 const socket = io();
 
 function changeHeaderVisibility(lastMessages, messengerSpace, header, alterHeader) {
@@ -15,7 +17,7 @@ function changeHeaderVisibility(lastMessages, messengerSpace, header, alterHeade
   if (alterHeader) {
     alterHeaderTag.setAttribute('style', `display:${alterHeader};`);
   }
-};
+}
 
 userslist.addEventListener('click', (event) => {
   if (window.innerWidth < 750 && event.target.tagName !== 'UL') {
@@ -37,41 +39,49 @@ window.addEventListener('resize', () => {
   }
 });
 
-// create messages and add these to div  
+// create messages and add thier to div
 function createMessage(content, direction) {
+  // Create Elements ;
   const message = document.createElement('div');
   const messageDirection = document.createElement('div');
-  const text = document.createElement('p')
+  const text = document.createElement('p');
   const messenger_space = document.getElementById('messenger_space');
+  // Add Content ;
   text.textContent = content;
+  // Add Classes ;
   message.classList.add('message');
   messageDirection.classList.add(direction);
+  // Nesting Elements ;
   messageDirection.appendChild(text);
   message.appendChild(messageDirection);
   messenger_space.appendChild(message);
+  // For Scroll Down When Add New Message
   messenger_space.scrollTop = messenger_space.scrollHeight;
 }
 
 // Send message to sockets network
 input.addEventListener('keyup', (event) => {
-
-  if (event.keyCode === 13) {
+  if (event.keyCode === 13 && event.target.value.trim()) {
     socket.emit('data', ({
       message: event.target.value,
       reciver: messenger.getAttribute('token'),
     }));
     createMessage(event.target.value, 'right');
+    changeLastMessageOrder(messenger.getAttribute('username'), event.target.value, messenger.getAttribute('token'));
     event.target.value = '';
   }
 });
 
 socket.on('data', (data) => {
-  const elements = document.querySelectorAll("[username=\"" + data['sender'] + "\"]");
   const messengerUser = messenger.getAttribute('username');
+  const userToken = messenger.getAttribute('token');
+
   if (messengerUser === data.sender) {
-    createMessage(data['msg'], 'left');
+    createMessage(data.msg, 'left');
+    changeLastMessageOrder(data.sender, data.msg, userToken);
   } else {
     notifyMe(data.sender, data.msg);
+    changeLastMessageOrder(data.sender, data.msg, userToken);
   }
 });
 
@@ -79,20 +89,20 @@ socket.on('data', (data) => {
 const newMessengerConfig = (jwt, username) => {
   messenger.setAttribute('username', username);
   messenger.setAttribute('token', jwt);
-  const allMessages = messenger.getElementsByClassName('messenger_space');
+  const messenger_space = messenger.getElementsByClassName('messenger_space');
   const usernameSpan = messenger.getElementsByTagName('span')[0];
   usernameSpan.textContent = username;
-  allMessages[0].innerHTML = '';
+  messenger_space[0].innerHTML = '';
   fetch('/chat', ({
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ reciver: username })
+    body: JSON.stringify({ reciver: username }),
   })).then(res => res.json())
     .then((res) => {
       if (res.Error) {
         window.location = res.Error;
       } else {
-        for (let i = 0; i < res.length; i++) {
+        for (let i = 0; i < res.length; i += 1) {
           createMessage(res[i].message, (res[i].receiver === username) ? 'right' : 'left');
         }
       }
@@ -108,17 +118,19 @@ const getConfig = (element) => {
 };
 
 // change the messenger space
-userslist.addEventListener('click', (e) => {
+lastMessages.addEventListener('click', (e) => {
   if (e.target && e.target.nodeName !== 'UL') {
-    if (e.target.nodeName === 'LI') {
-      getConfig(e.target);
-    } else if (e.target.nodeName === 'DIV') {
-      getConfig((e.target).parentElement);
-    } else {
-      getConfig(((e.target).parentElement).parentElement);
-    }
+    if (e.target.nodeName === 'LI') { getConfig(e.target); }
   }
 }, true);
+
+// change users
+userslist.addEventListener('click', (e) => {
+  if (e.target && e.target.nodeName !== 'UL') {
+    if (e.target.nodeName === 'LI') { getConfig(e.target); }
+  }
+}, true);
+
 
 // Handling Errors ;
 socket.on('error', (data) => {
@@ -133,20 +145,87 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  if (Notification.permission !== "granted")
-    Notification.requestPermission();
+  if (Notification.permission !== 'granted') { Notification.requestPermission(); }
 });
 
 function notifyMe(sender, message) {
-  if (Notification.permission !== "granted")
-    Notification.requestPermission();
-  else {
-    let notification = new Notification(sender, {
-      icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
+  if (Notification.permission !== 'granted') { Notification.requestPermission(); } else {
+    const notification = new Notification(sender, {
+      icon: 'https://static.thenounproject.com/png/1211643-200.png',
       body: message,
     });
-    notification.onclick = function () {
-      window.open("http://stackoverflow.com/a/13328397/1269037");
-    };
   }
+}
+const makeLiveTag = (data, usersList) => {
+  const users = usersList.children;
+  let done = false;
+  for (let i = 0; i < users.length; i += 1) {
+    for (let j = 0; j < data.userslist.length; j += 1) {
+      if (users[i].getAttribute('username') === data.userslist[j]) {
+        users[i].getElementsByClassName('live_logo')[0].setAttribute('style', 'display:flex;');
+        done = true;
+      }
+    }
+    if (!done) {
+      users[i].getElementsByClassName('live_logo')[0].setAttribute('style', 'display:none;');
+    }
+  }
+};
+
+socket.on('live', (data) => {
+  // For Users List (Right Side);
+  makeLiveTag(data, userslist);
+  // For Last Messages (Left Side) ;   
+  makeLiveTag(data, lastMessages);
+});
+
+
+const createNewListMessage = (username, newMessage, token) => {
+  const li = document.createElement('li');
+  const message = document.createElement('div');
+  const usernameTag = document.createElement('span');
+  const liveLogo = document.createElement('span');
+  const liveCircle = document.createElement('span');
+  const liveWord = document.createElement('span');
+  const lastMessage = document.createElement('span');
+
+  // Add Content ;
+  li.setAttribute('username', username);
+  li.setAttribute('id', token);
+  message.classList.add('message');
+  usernameTag.classList.add('username');
+  usernameTag.textContent = username;
+  liveLogo.classList.add('live_logo');
+  liveLogo.setAttribute('id', 'live_logo');
+  liveCircle.classList.add('live_circle');
+  liveWord.classList.add('live_word');
+  liveWord.textContent = 'Live';
+  lastMessage.classList.add('last_message');
+  lastMessage.textContent = newMessage;
+
+  li.appendChild(message);
+  li.appendChild(liveLogo);
+  li.appendChild(lastMessage);
+  message.appendChild(usernameTag);
+  liveLogo.appendChild(liveCircle);
+  liveLogo.appendChild(liveWord);
+  lastMessages.insertBefore(li, lastMessages.firstChild);
+};
+
+const changeLastMessageOrder = (username, newMessage, token) => {
+  const { children } = lastMessages;
+  let done = false;
+  for (let i = 0; i < children.length; i += 1) {
+    if (children[i].getAttribute('username') === username) {
+      const newChild = children[i];
+      newChild.getElementsByClassName('last_message')[0].textContent = newMessage;
+      lastMessages.removeChild(newChild);
+      lastMessages.insertBefore(newChild, lastMessages.firstChild);
+      done = true;
+    }
+  }
+  if (!done) { createNewListMessage(username, newMessage, token); }
+};
+window.onunload = () => {
+  socket.disconnect();
 };

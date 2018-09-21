@@ -4,29 +4,34 @@
 	background-image: url(http://imamsonline.com/wp-content/uploads/2017/08/mental-health-stigma.jpg);
 	height: 450px;
 }
+button{
+	cursor: pointer;
+}
 
 .showcase .showcase_Container {
+	
 	width: 100%;
 	height: 100%;
+	margin-top: 60px;
 	background-color: rgba(0, 0, 0, .4);
 }
 
 .showcase .showcase_Container .content {
-	width: 25%;
-	height: 150px;
+	width: 35%;
+	min-height: 150px;
+	margin: 0 auto;
+	padding-top: 50px;
 	text-align: center;
-	padding-left: 100px;
-	padding-top: 100px;
 }
 
 .showcase .showcase_Container .content h1 {
 	color: #FF8D19;
-	font-size: 40px;
+	font-size: 45px;
 }
 
 .showcase .showcase_Container .content h2 {
 	color: #EEE;
-	font-size: 18px;
+	font-size: 20px;
 	margin-bottom: 10px;
 	padding-left: 100px;
 	font-weight: 300;
@@ -34,7 +39,7 @@
 
 .showcase .showcase_Container .content p {
 	color: #EEE;
-	font-size: 15px;
+	font-size: 20px;
 	margin-top: 30px;
 }
 
@@ -42,12 +47,12 @@
 	background-color: #FF8D19;
 	color: #EEE;
 	border: none;
-	border-radius: 2px;
-	font-size: 20px;
+	border-radius: 5px;
+	font-size: 25px;
 	font-weight: 300;
 	font-family: Roboto;
 	margin-top: 30px;
-	padding: 7px 25px;
+	padding: 10px 50px;
 }
 
 
@@ -64,7 +69,7 @@ main section>h1:first-child {
 }
 
 main section .service_conteainer {
-	width: 90%;
+	width: 95%;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -72,9 +77,9 @@ main section .service_conteainer {
 }
 
 main section .service_conteainer .item {
-	width: 25%;
+	width: 30%;
 	text-align: center;
-	margin: 10px 20px;
+	margin: 50px 20px;
 }
 
 main section .service_conteainer .item h1 {
@@ -91,6 +96,7 @@ main section .service_conteainer .item:nth-child(2) {
 main section .service_conteainer .item p {
 	color: #868686;
 	font-size: 15px;
+
 }
 
 hr {
@@ -98,7 +104,7 @@ hr {
 	width: 40%;
 	background-color: #FF8D19;
 	border: none;
-	margin: 15px auto;
+	margin: 50px auto;
 }
 
 
@@ -110,11 +116,13 @@ main section .contact_conteainer {
 	justify-content: space-between;
 	margin: 0 auto;
 	margin-bottom: 10px;
+	margin-top: 100px;
 }
 
 main section .contact_conteainer .pic {
+	background-size: fill;
 	width: 50%;
-	height: 300px;
+	height: 400px;
 	border: 1px solid black;
 }
 
@@ -124,31 +132,36 @@ main section .contact_conteainer .form {
 
 main section .contact_conteainer .form label {
 	display: block;
-	font-size: 14px;
+	font-size: 18px;
+	text-align: center;
 }
 
 main section .contact_conteainer .form label input {
 	display: block;
-	width: 260px;
+	width: 60%;
 	height: 40px;
 	border: 0;
 	border-radius: 4px;
 	box-shadow: 0 0 5px 0 rgba(0, 0, 0, .4);
+	margin: 0 auto;
 	margin-top: 10px;
 	margin-bottom: 10px;
+	padding-left:10px;
 }
 
 main section .contact_conteainer .form button {
 	background-color: #FF8D19;
 	color: #EEE;
 	border: none;
+	width: 50%;
 	border-radius: 3px;
 	font-family: Roboto;
 	font-size: 20px;
 	font-weight: 300;
-	padding: 7px 25px;
+	padding: 10px 25px;
+	margin: 0 auto;
 	margin-top: 20px;
-	margin-left: 80px;
+	margin-bottom: 200px;
 }
 
 main section .contact_conteainer .form label input::placeholder {
@@ -164,23 +177,6 @@ main section .contact_conteainer .form label input::placeholder {
 @media (max-width: 1200px) {
 	.showcase .showcase_Container .content {
 		width: 50%;
-	}
-	.showcase .showcase_Container .content h1 {
-		color: #FF8D19;
-		font-size: 30px;
-	}
-	.showcase .showcase_Container .content h2 {
-		color: #EEE;
-		font-size: 15px;
-		font-weight: 300;
-		padding: 0;
-		margin-bottom: 10px;
-	}
-	.showcase .showcase_Container .content p {
-		color: #EEE;
-		font-size: 12px;
-		padding: 0 25px;
-		margin-top: 30px;
 	}
 }
 
@@ -204,6 +200,36 @@ main section .contact_conteainer .form label input::placeholder {
 	}
 	header .logo {
 		margin-left: 100px;
+	}
+
+	.showcase .showcase_Container .content {
+		width: 80%;
+	}
+	.showcase .showcase_Container .content h1 {
+		color: #FF8D19;
+		font-size: 40px;
+	}
+	.showcase .showcase_Container .content h2 {
+		color: #EEE;
+		font-size: 15px;
+		font-weight: 300;
+		padding: 0;
+		margin-bottom: 10px;
+	}
+	.showcase .showcase_Container .content p {
+		color: #EEE;
+		font-size: 18px;
+		padding: 0 25px;
+		margin-top: 30px;
+	}
+	main section .contact_conteainer .form {
+		width: 95%;
+	}
+	main section .contact_conteainer .form label input {
+		width: 250px;
+	}
+	main section .contact_conteainer .form  button {
+		width: 200px;
 	}
 }
 
@@ -295,5 +321,14 @@ main section .contact_conteainer .form label input::placeholder {
 	}
 	.hamburger-menu ul li {
 		padding: 10px;
+	}
+	.showcase .showcase_Container .content {
+		width: 90%;
+	}
+	main section .contact_conteainer .form label input {
+	width: 250px;
+	}
+	main section .contact_conteainer .form  button {
+		width: 200px;
 	}
 }

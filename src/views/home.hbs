@@ -5,10 +5,10 @@
             <h1>Chat It Out </h1>
             <h2>Gaza Psychological Service</h2>
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-                massa.
+                massa. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id sunt non ipsa! Quas, magni autem.
                 Cum sociis natoque penatibus et magnis
             </p>
-            <button type="submit">Join Us</button>
+            <a href="/signup"><button type="submit">Join Us</button></a>
         </div>
     </div>
 </div>
@@ -19,12 +19,12 @@
     <section>
         <h1>Our Services</h1>
         <div class="service_conteainer">
-            
+
             {{#each services}}
-               <div class="item">
-                    <h1>{{this.title}}</h1>
-                    <p>{{this.para}}</p>
-             </div>
+            <div class="item">
+                <h1>{{this.title}}</h1>
+                <p>{{this.para}}</p>
+            </div>
             {{/each}}
 
         </div>
@@ -38,6 +38,8 @@
         <h1>Contact us</h1>
         <div class="contact_conteainer">
             <div class="pic">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d435856.72569301573!2d34.107808954101266!3d31.410525730211383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14fd844104b258a9%3A0xfddcb14b194be8e7!2sGaza+Strip!5e0!3m2!1sen!2s!4v1537354937927"
+                    width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
             <div class="form">
                 <label for="Username">Username:
@@ -51,7 +53,8 @@
                 <label for="content">Content:
                     <input type="text" name="Content" id="content" placeholder="Enter your message">
                 </label>
-                <button>Send</button>
+                <div style="text-align:center" id="alertField"></div>
+                <button id="btn" style="display:block;">Send</button>
             </div>
         </div>
     </section>

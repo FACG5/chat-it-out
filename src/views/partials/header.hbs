@@ -1,8 +1,10 @@
 <div class="container">
 
     <div class="logo">
-        <span class="first_word">Chat it Out</span>
-        <span class="second_word">Gaza psychological service</span>
+        <a href="/" style="color:white; text-decoration:none;">
+            <span class="first_word">Chat it Out</span>
+            <span class="second_word">Gaza psychological service</span>
+        </a>
     </div>
 
     <nav>
@@ -12,10 +14,15 @@
             <li><a href="/doctors">Doctors</a></li>
             <li><a href="/chat">Chat</a></li>
             {{#if login}}
-                <li><a href="/signin">Login</a></li>
-                <li><a href="/signup">Sign Up</a></li>
+            <li><a href="/signin">Login</a></li>
+            <li><a href="/signup">Sign Up</a></li>
             {{else}}
-                <li><a href="/">{{username}}</a></li>
+            <li><a href="/">{{username}}</a></li>
+            <li><a href="/signout">Sign Out</a></li>
+            {{/if}}
+            
+            {{#if admin}}
+            <li><a href="/admin">Admin Page</a></li>
             {{/if}}
         </ul>
     </nav>

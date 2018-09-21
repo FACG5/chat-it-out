@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Lato');
-@import url('https://fonts.googleapis.com/css?family=Oswald:200');
 .admin .container{
+min-height: 80vh;
     width: 80%;
     margin: 0 auto;
     margin-top: 100px;
