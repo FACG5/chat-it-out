@@ -8,6 +8,7 @@ const signUp = require('./signUp');
 const signIn = require('./signIn');
 const doctor = require('./doctor');
 const addDoctor = require('./addDoctor');
+const { clientError, serverError } = require('./error');
 
 // Home Route
 Router.get('/', home.get);
@@ -42,5 +43,9 @@ Router.get('/doctors/:id', doctor.get);
 
 // AddDoctors Routes
 Router.get('/addDoctor', addDoctor.get);
+
+// Erorr Handling MiddleWare
+Router.use(clientError);
+Router.use(serverError);
 
 module.exports = Router;
