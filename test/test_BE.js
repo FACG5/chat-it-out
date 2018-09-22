@@ -183,7 +183,7 @@ tape('Check Adding Taken User To DB', (t) => {
     }
   });
 });
-/*
+
 
 // test /sign up (add user ) Route
 tape('Check Adding Taken Email To DB', (t) => {
@@ -400,4 +400,3 @@ tape(' Check Get User With N-Exists Query DB', (t) => {
   });
 });
 tape.onFinish = () => { process.exit(0); };
-*/
