@@ -3,6 +3,7 @@
     "globals": {
         "window": true,
         "document": true,
-        "Notification": true
+        "Notification": true,
+        "fetch": true
     }
 }
