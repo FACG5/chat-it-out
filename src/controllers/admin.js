@@ -1,13 +1,13 @@
+const bcrypt = require('bcryptjs');
 const {
   insertArticle,
   insertDoctor
 } = require('../model/queries/addData');
-const bcrypt = require('bcryptjs');
 const saltRounds = 10;
 
 exports.get = (req, res) => {
-  // console.log(res.locals.unlockCookie);
-  // if (res.locals.unlockCookie.permission === 'admin') {
+  console.log(res.locals.unlockCookie);
+  if (res.locals.unlockCookie.permission === 'admin') {
   res.render('admin', {
     title: 'Admin Panel',
     headerFound: true,
@@ -15,12 +15,12 @@ exports.get = (req, res) => {
     asideFound: true,
     style: ['admin', 'header', 'footer'],
     javascript: ['hamburger', 'addArticle'],
-    // login: (res.locals.unlockCookie === null), username: (res.locals.unlockCookie === null) ? 'Unkown' : res.locals.unlockCookie.username,
+    login: (res.locals.unlockCookie === null), username: (res.locals.unlockCookie === null) ? 'Unkown' : res.locals.unlockCookie.username,
   });
-  // } else {
-  //   res.clearCookie('jwt');
-  //   res.redirect('/signIn');
-  // }
+  } else {
+    res.clearCookie('jwt');
+    res.redirect('/signIn');
+  }
 };
 
 exports.addArticle = (req, res) => {

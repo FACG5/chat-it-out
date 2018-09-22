@@ -1,6 +1,8 @@
 const Router = require('express').Router();
 const home = require('./home');
-const admin = require('./admin');
+const {
+  get, addArticle, addDoctor, addDoctorDB
+} = require('./admin');
 const article = require('./article');
 const articles = require('./articles');
 const doctors = require('./doctors');
@@ -20,11 +22,11 @@ Router.route('/signIn')
   .post(signIn.post);
 
 // Admin Routes
-Router.get('/admin', admin.get);
-Router.post('/admin/addArticle', admin.addArticle);
+Router.get('/admin', get);
+Router.post('/admin/addArticle', addArticle);
 Router.route('/addDoctor')
-.get(admin.addDoctor)
-.post(admin.addDoctorDB);
+.get(addDoctor)
+.post(addDoctorDB);
 
 // Article Routes
 Router.get('/article/:id', article.get);
