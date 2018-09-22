@@ -75,7 +75,7 @@ tape('check user without admin permission', (t) => {
       if (err) {
         t.error(err);
       }
-      t.equal(res.text, 'Found. Redirecting to /signIn', ' The Response Should Be Redirect');
+      t.equal(res.text, 'Found. Redirecting to /', ' The Response Should Be Redirect');
       t.end();
     });
 });
@@ -389,3 +389,4 @@ tape(' Check Get User With N-Exists Query DB', (t) => {
     });
   });
 });
+tape.onFinish = () => { process.exit(0); };

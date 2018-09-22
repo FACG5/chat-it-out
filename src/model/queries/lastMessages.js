@@ -1,5 +1,3 @@
-const fs = require('fs');
-const path = require('path');
 const dbConnection = require('./../database/db_connection');
 
 const getMessages = (username, callback) => {

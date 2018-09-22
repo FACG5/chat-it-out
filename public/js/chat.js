@@ -92,7 +92,7 @@ const newMessengerConfig = (jwt, username) => {
   const messenger_space = messenger.getElementsByClassName('messenger_space');
   const usernameSpan = messenger.getElementsByTagName('span')[0];
   usernameSpan.textContent = username;
-  messenger_space[0].innerHTML = '';
+  messenger_space[0].textContent = '';
   fetch('/chat', ({
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
