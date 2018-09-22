@@ -71,7 +71,6 @@ const renderChat = (req, res) => {
           admin: res.locals.unlockCookie !== null ? res.locals.unlockCookie.permission === 'admin' : false,
         });
       });
-      // const usersToken = makeUsersToken(uesrs);
     }
   });
 };
@@ -98,11 +97,9 @@ exports.get = (req, res) => {
     if (res.locals.unlockCookie.permission !== 'admin') {
       renderChat(req, res);
     } else {
-      res.clearCookie('jwt');
       res.redirect('/');
     }
   } else {
-    res.clearCookie('jwt');
     res.redirect('/signIn');
   }
 };
