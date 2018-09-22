@@ -3,9 +3,15 @@ const url = require('url');
 require('env2')('./config.env');
 
 let DB_URL = process.env.DB_URL;
-if (!process.env.DB_URL) throw new Error('DB_URL MISSING');
-if(process.env.NODE_DEV) DB_URL = process.env.TEST_DB_URL;
-const params = url.parse(process.env.DB_URL);
+
+if (process.env.NODE_DEV) {
+  DB_URL = process.env.TEST_DB_URL;
+}
+
+if ((typeof DB_URL === 'undefined')) {
+  throw new Error(' Where DB_URL ');
+}
+const params = url.parse(DB_URL);
 const [username, password] = params.auth.split(':');
 
 const options = {
