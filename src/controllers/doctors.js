@@ -12,6 +12,7 @@ exports.get = (req, res) => {
       arrayOfDoctors: result.rows,
       login: (res.locals.unlockCookie === null),
       username: (res.locals.unlockCookie === null) ? 'Unkown' : (res.locals.unlockCookie.username),
+      admin: res.locals.unlockCookie !== null ? res.locals.unlockCookie.permission === 'admin' : false,
     });
   });
 };

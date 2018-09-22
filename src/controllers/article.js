@@ -11,7 +11,8 @@ exports.get = (req, res, next) => {
         javascript: ['hambruger'],
         article: result.rows[0],
         login: (res.locals.unlockCookie === null),
-        username: (res.locals.unlockCookie === null) ? 'Unkown' : (res.locals.unlockCookie.username),
+        username: (res.locals.unlockCookie === null) ? 'Unkown' : res.locals.unlockCookie.username,
+        admin: res.locals.unlockCookie !== null ? res.locals.unlockCookie.permission === 'admin' : false,
       });
     }).catch((error) => {
       next(error);
