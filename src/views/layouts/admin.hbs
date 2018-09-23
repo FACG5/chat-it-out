@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    {{>head}}
+
+</head>
+
+<body>
+
+
+    {{#if headerFound}}
+    <header id="header">
+        {{>header}}
+    </header>
+    {{/if}}
+
+
+    <main>
+        <section class="admin">
+            <div class="container">
+                <div class="boxes">
+                    <div class="box hvr-sweep-to-right">
+                        <div class="content">
+                            <img src="https://thumb.ibb.co/et95Pp/25ee6afa66526c6f0a8b041dc68e9762.png" alt="doctors"
+                                border="0">
+                            <span> <a href="/addDoctor">Add Doctor</a></span>
+                        </div>
+                    </div>
+                    <div class="box hvr-sweep-to-right active">
+                        <div class="content">
+                            <img src="https://thumb.ibb.co/chCVSK/ca5e4886a454c96e925082bd6bedb402.png" alt="Aricles"
+                                border="0">
+                            <span>Add Article</span>
+                        </div>
+                    </div>
+                    <div class="box hvr-sweep-to-right">
+                        <div class="content">
+                            <img src="https://thumb.ibb.co/mZv6VU/c1f3495600bd7efa9c6f507226584392.png" alt="Messages"
+                                border="0">
+                            <span>View Messages</span>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                {{{body}}}
+            </div>
+        </section>
+    </main>
+
+
+    {{#if asideFound}}
+    <aside class="hide" id="aside">
+        {{>aside}}
+    </aside>
+    {{/if}}
+
+
+    {{#if footerFound}}
+    <footer>
+        {{>footer}}
+    </footer>
+    {{/if}}
+
+
+    {{#each javascript}}
+    <script src="./js/{{this}}.js"></script>
+    {{/each}}
+
+</body>
+
+
+</html>

@@ -55,6 +55,7 @@ header .container nav ul li {
 header .container nav ul li a{
     text-decoration: none;
     color:#5A5A5A;
+    font-size:15px;
     transition-duration: .3s;
 }
 header .container nav ul li a:hover{
