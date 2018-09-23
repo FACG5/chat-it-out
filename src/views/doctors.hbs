@@ -10,7 +10,7 @@
                     <span class="doctor_age">Age: 45</span>
                     <span class="about_doctor">{{this.doctor_description}}
                     </span>
-                    <input type="submit" id="view_doctor" value="View More">
+                    <button id="view_doctor"><a href="/doctors/{{this.user_id}}">View More</a></button>
                 </article>
             </div>
             {{/each}}

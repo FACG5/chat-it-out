@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Oswald:200');
 .adddoctor .container{
     width: 80%;
     margin: 0 auto;
@@ -116,8 +118,9 @@
     color: red;
 }
 h1 {margin-bottom: 164px;}
- @media(max-width: 600px) {
+
+@media(max-width: 600px) {
     .adddoctor .container .boxes {
         margin: 0 17px 33px;
     }
-} 
+}

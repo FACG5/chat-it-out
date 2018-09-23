@@ -2,11 +2,11 @@ INSERT INTO users (user_name,user_email,user_password,permission)VALUES
 ('salwa','salwa@hotmail.com', '123', 'admin');
 
 
-INSERT INTO users (user_name,user_email,user_password,permission) VALUES
-('ons', 'ons@hotmail.com', '1861997', 'doctor'), 
-('kannan', 'kannan@hotmail.com', 'rami', 'doctor'),
-('mohanned', 'mohanned@hotmail.com', 'fofo','doctor'),
-('ahmed', 'ahmed@ahmed.com', '$2a$10$LWRAQJIB/Yyt/pPp.QRJMOSd4AyeCfJkibkYA9VeHv9GTx.uiCS52','patient');
+INSERT INTO users (user_name,user_email,user_password,doctor_description,permission) VALUES
+('ons', 'ons@hotmail.com', '1861997', 'I am a doctor', 'doctor'), 
+('kannan', 'kannan@hotmail.com', 'rami', 'I am a doctor', 'doctor'),
+('mohanned', 'mohanned@hotmail.com', 'fofo','I am a doctor','doctor'),
+('ahmed', 'ahmed@ahmed.com', '$2a$10$LWRAQJIB/Yyt/pPp.QRJMOSd4AyeCfJkibkYA9VeHv9GTx.uiCS52','I am a doctor','patient');
 
 
 INSERT INTO articles (article_title,article_img,article_body)VALUES 

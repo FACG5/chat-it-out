@@ -101,12 +101,20 @@
 .data label {
 	margin-right: 209px;
 }
+<<<<<<< HEAD
+.admin .container .form > div input, .admin .container .form > div textarea {
+    padding: 13px 34px;
+    border: 2px solid #575757;
+    margin-top: 10px;
+    width: 322px;
+=======
 
 .admin .container .form>div input,
 .admin .container .form>div textarea {
 	padding: 15px 45px;
 	border: 2px solid #575757;
 	margin-top: 10px;
+>>>>>>> fa76d2a510166566021573b1a8ed0335cb995cbd
 }
 
 .admin .container .form>div textarea {
