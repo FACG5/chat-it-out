@@ -1,11 +1,18 @@
-
 <div class="hide_aside" id="slider_bar">
-    <h1>Chat It Out</h1>
+    <h1><a href="/" style="color:white;text-decoration:none;"> Chat It Out</a></h1>
     <span><a href="/">Home</a></span>
     <span><a href="/articles">Articles</a></span>
     <span><a href="/doctors">Doctors</a></span>
     <span><a href="/chat">Chat</a></span>
+    {{#if login}}
+    <span><a href="/signin">Login</a></span>
     <span><a href="/signup">Sign Up</a></span>
-    <span><a href="/signin">Sign In</a></span>
-</div>
+    {{else}}
+    <span><a href="/">{{username}}</a></span>
+    <span><a href="/signout">Sign Out</a></span>
+    {{/if}}
 
+    {{#if admin}}
+    <span><a href="/admin">Admin Page</a></span>
+    {{/if}}
+</div>

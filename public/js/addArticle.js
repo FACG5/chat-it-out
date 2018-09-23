@@ -16,7 +16,7 @@ article.addEventListener('click', () => {
       },
       body: JSON.stringify(obj),
     }).then(response => response.json())
-      .then((res) => {
+      .then(() => {
         const success = document.createElement('h1');
         success.textContent = 'The post has been sent successfully';
         form.textContent = '';
@@ -25,8 +25,8 @@ article.addEventListener('click', () => {
           window.location = '/admin';
         }, 1000);
       })
-      .catch(error => {
-        form.textContent = '' + 'Internal server error';
+      .catch(() => {
+        form.textContent = 'Internal server error';
       });
   } else {
     err.textContent = 'Please enter the empty fields';

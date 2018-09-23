@@ -31,8 +31,8 @@ content TEXT NOT NULL
 
 CREATE TABLE chats (
 id SERIAL PRIMARY KEY,
-sender INTEGER REFERENCES users(user_id),
-receiver INTEGER REFERENCES users(user_id),
+sender VARCHAR(20) REFERENCES users(user_name) NOT NULL,
+receiver VARCHAR(20) REFERENCES users(user_name) NOT NULL,
 message TEXT NOT NULL
 );
 

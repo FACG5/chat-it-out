@@ -20,7 +20,6 @@ tape('test for home route ', (t) => {
       t.ok(res.text.includes('showcase'));
       t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'The Response Should Be Html Page');
       t.end();
-
     });
 });
 
@@ -29,20 +28,21 @@ tape('Check /doctors Route', (t) => {
   dbBuild((err) => {
     if (err) {
       t.end();
+    } else {
+      supertest(app)
+        .get('/doctors')
+        .expect(200)
+        .expect('Content-type', /html/)
+        .end((err, res) => {
+          if (err) {
+            t.error(err);
+          } else {
+            t.ok(res.text.includes('body'));
+            t.ok(res.text.includes('doctors'));
+            t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'The Response Should Be Html Page');
+          }
+        });
     }
-    supertest(app)
-      .get('/doctors')
-      .expect(200)
-      .expect('Content-type', /html/)
-      .end((err, res) => {
-        if (err) {
-          t.error(err);
-        }
-        t.ok(res.text.includes('body'));
-        t.ok(res.text.includes('doctors'));
-        t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'The Response Should Be Html Page');
-        t.end();
-      });
   });
 });
 
@@ -56,13 +56,15 @@ tape('check user with admin permission', (t) => {
     .end((err, res) => {
       if (err) {
         t.error(err);
+      } else {
+        t.ok(res.text.includes('body'));
+        t.ok(res.text.includes('admin'));
+        t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'The Response Should Be Html Page');
+        t.end();
       }
-      t.ok(res.text.includes('body'));
-      t.ok(res.text.includes('admin'));
-      t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'The Response Should Be Html Page');
-      t.end();
     });
 });
+
 
 // test the /admin ( Admin Page ) route
 tape('check user without admin permission', (t) => {
@@ -74,12 +76,12 @@ tape('check user without admin permission', (t) => {
     .end((err, res) => {
       if (err) {
         t.error(err);
+      } else {
+        t.equal(res.text, 'Found. Redirecting to /', ' The Response Should Be Redirect');
+        t.end();
       }
-      t.equal(res.text, 'Found. Redirecting to /signIn', ' The Response Should Be Redirect');
-      t.end();
     });
 });
-
 // test the /article ( Article Page ) route
 tape('check the article page route', (t) => {
   supertest(app)
@@ -89,11 +91,12 @@ tape('check the article page route', (t) => {
     .end((err, res) => {
       if (err) {
         t.error(err);
+      } else {
+        t.ok(res.text.includes('body'));
+        t.ok(res.text.includes('article_img'));
+        t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'The Response Should Be Html Page');
+        t.end();
       }
-      t.ok(res.text.includes('body'));
-      t.ok(res.text.includes('article_img'));
-      t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'The Response Should Be Html Page');
-      t.end();
     });
 });
 
@@ -102,22 +105,22 @@ tape('check the articles page route', (t) => {
   dbBuild((err) => {
     if (err) {
       t.end();
+    } else {
+      supertest(app)
+        .get('/articles')
+        .expect(200)
+        .expect('Content-Type', /html/)
+        .end((err, res) => {
+          if (err) {
+            t.error(err);
+          } else {
+            t.ok(res.text.includes('body'));
+            t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'the respone  should be html file');
+          }
+        });
     }
-    supertest(app)
-      .get('/articles')
-      .expect(200)
-      .expect('Content-Type', /html/)
-      .end((err, res) => {
-        if (err) {
-          t.error(err);
-        }
-        t.ok(res.text.includes('body'));
-        t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'the respone  should be html file');
-        t.end();
-      });
   });
 });
-
 // test the /signIn ( Login Page ) Route
 tape(' Check The Sign in Page Route', (t) => {
   supertest(app)
@@ -127,11 +130,12 @@ tape(' Check The Sign in Page Route', (t) => {
     .end((err, res) => {
       if (err) {
         t.error(err);
+      } else {
+        t.ok(res.text.includes('body'));
+        t.ok(res.text.includes('login'));
+        t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'The Response Should Be Html Page');
+        t.end();
       }
-      t.ok(res.text.includes('body'));
-      t.ok(res.text.includes('login'));
-      t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'The Response Should Be Html Page');
-      t.end();
     });
 });
 
@@ -144,33 +148,42 @@ tape(' Check The Sign Up Page Route', (t) => {
     .end((err, res) => {
       if (err) {
         t.error(err);
+      } else {
+        t.ok(res.text.includes('body'));
+        t.ok(res.text.includes('signup'));
+        t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'The Response Should Be Html Page');
+        t.end();
       }
-      t.ok(res.text.includes('body'));
-      t.ok(res.text.includes('signup'));
-      t.equal(res.text.substr(0, 15), '<!DOCTYPE html>', 'The Response Should Be Html Page');
-      t.end();
     });
 });
-
 // test /sign up (add user ) Route
 tape('Check Adding Taken User To DB', (t) => {
-  dbBuild(() => {
-    dbDemoBuild(() => {
-      supertest(app)
-        .post('/signUp')
-        .send({ username: 'ahmed', email: 'ahmed@ahmed.com', password: '123456789Q' })
-        .expect('Content-Type', /json/)
-        .expect(200)
-        .end((err, response) => {
-          if (err) {
-            t.error(err);
-          }
-          t.deepEquals(response.text, JSON.stringify({ Error: 'The Email Or Username Taken' }), ' The Result Should Be Error The User Taken');
-          t.end();
-        });
-    });
+  dbBuild((err) => {
+    if (err) {
+      t.error(err);
+    } else {
+      dbDemoBuild((err) => {
+        if (err) {
+          t.error(err);
+        } else {
+          supertest(app)
+            .post('/signUp')
+            .send({ username: 'ahmed', email: 'ahmed@ahmed.com', password: '123456789Q' })
+            .expect('Content-Type', /json/)
+            .expect(200)
+            .end((err, response) => {
+              if (err) {
+                t.error(err);
+              } else {
+                t.deepEquals(response.text, JSON.stringify({ Error: 'The Email Or Username Taken' }), ' The Result Should Be Error The User Taken');
+              }
+            });
+        }
+      });
+    }
   });
 });
+
 
 // test /sign up (add user ) Route
 tape('Check Adding Taken Email To DB', (t) => {
@@ -184,9 +197,10 @@ tape('Check Adding Taken Email To DB', (t) => {
         .end((err, response) => {
           if (err) {
             t.error(err);
+          } else {
+            t.deepEquals(response.text, JSON.stringify({ Error: 'The Email Or Username Taken' }), ' The Result Should Be Error The User Taken');
+            t.end();
           }
-          t.deepEquals(response.text, JSON.stringify({ Error: 'The Email Or Username Taken' }), ' The Result Should Be Error The User Taken');
-          t.end();
         });
     });
 
@@ -205,9 +219,10 @@ tape('Check Adding Right User To DB', (t) => {
         .end((err, response) => {
           if (err) {
             t.error(err);
+          } else {
+            t.deepEquals(response.text, JSON.stringify({ result: '/signIn' }), ' The Result Should Be Error The User Taken');
+            t.end();
           }
-          t.deepEquals(response.text, JSON.stringify({ result: '/signIn' }), ' The Result Should Be Error The User Taken');
-          t.end();
         });
     });
   });
@@ -225,9 +240,10 @@ tape('Check Adding Wrogn  User  Object To DB', (t) => {
         .end((err, response) => {
           if (err) {
             t.error(err);
+          } else {
+            t.deepEquals(response.text, JSON.stringify({ Error: 'There Is Error' }), ' The Result Should Be Error The User Taken');
+            t.end();
           }
-          t.deepEquals(response.text, JSON.stringify({ Error: 'There Is Error' }), ' The Result Should Be Error The User Taken');
-          t.end();
         });
     });
   });
@@ -383,3 +399,4 @@ tape(' Check Get User With N-Exists Query DB', (t) => {
     });
   });
 });
+tape.onFinish = () => { process.exit(0); };

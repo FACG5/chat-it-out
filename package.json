@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "tape ./test/test_BE.js | tap-spec",
+    "test": "NODE_DEV=TEST tape ./test/test_BE.js | tap-spec",
     "start": "node ./src/index.js",
     "dev": "nodemon ./src/index.js"
   },
@@ -19,9 +19,10 @@
     "express-handlebars": "^3.0.0",
     "pg": "^7.4.3",
     "env2": "^2.2.2",
-    "bcryptjs":"*",
-    "jsonwebtoken":"*",
-    "cookie-parser":"*"
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^8.3.0",
+    "cookie-parser": "^1.4.3",
+    "socket.io": "^2.1.1"
   },
   "devDependencies": {
     "eslint": "^5.5.0",
