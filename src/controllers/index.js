@@ -6,7 +6,6 @@ const doctors = require('./doctors');
 const signUp = require('./signUp');
 const signIn = require('./signIn');
 const doctor = require('./doctor');
-const addDoctor = require('./addDoctor');
 const chat = require('./chat');
 const signOut = require('./signOut');
 const addSuggestion = require('./suggestion');
@@ -51,9 +50,6 @@ Router.get('/articles', articles.get);
 
 // Doctor Routes
 Router.get('/doctors/:id', doctor.get);
-
-// AddDoctors Routes
-Router.get('/addDoctor', addDoctor.get);
 // Sign Out Routes ;
 Router.get('/signout', signOut.get);
 
