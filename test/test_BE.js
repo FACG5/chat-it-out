@@ -74,6 +74,7 @@ tape('check user without admin permission', (t) => {
     .expect(302)
     .expect('Content-Type', /plain/)
     .end((err, res) => {
+      console.log('test res--> ', res)
       if (err) {
         t.error(err);
       } else {
