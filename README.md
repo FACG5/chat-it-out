@@ -1,6 +1,6 @@
 # chat-it-out-
 
-Link of website [Here ](https://chat-it-out.herokuapp.com/)
+Link of website [Here ](https://chatitout-demo.herokuapp.com/signin)
 
 Prototype [Here ](https://www.figma.com/file/ZWhrAfb41Qyqkz9arVEkcbaE/Untitled?node-id=0%3A1)
 
