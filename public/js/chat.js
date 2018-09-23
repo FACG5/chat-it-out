@@ -95,6 +95,7 @@ const newMessengerConfig = (jwt, username) => {
   messenger_space[0].textContent = '';
   fetch('/chat', ({
     method: 'POST',
+    credentials: 'same-origin',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ reciver: username }),
   })).then(res => res.json())

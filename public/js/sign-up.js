@@ -73,6 +73,7 @@ btn.addEventListener('click', () => {
   ) {
     fetch('/signUp', ({
       method: 'POST',
+      credentials: 'same-origin',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(collectData()),
     })).then(res => res.json())

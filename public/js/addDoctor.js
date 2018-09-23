@@ -83,6 +83,7 @@ const send = () => {
     const obj = collectData();
     fetch('/addDoctor', {
       method: 'POST',
+      credentials: 'same-origin',
       headers: {
         'Content-Type': 'application/json',
       },

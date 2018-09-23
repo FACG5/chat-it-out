@@ -31,6 +31,7 @@ btn.addEventListener('click', () => {
   if (username.value && password.value) {
     fetch('/signIn', ({
       method: 'POST',
+      credentials: 'same-origin',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(collectData()),
     })).then(res => res.json())

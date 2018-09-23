@@ -11,6 +11,7 @@ article.addEventListener('click', () => {
   if (title.value.trim() && content.value.trim()) {
     fetch('/admin/addArticle', {
       method: 'POST',
+      credentials: 'same-origin',
       headers: {
         'Content-Type': 'application/json',
       },
