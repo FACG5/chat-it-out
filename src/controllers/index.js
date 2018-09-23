@@ -1,6 +1,5 @@
 const Router = require('express').Router();
 const home = require('./home');
-const admin = require('./admin');
 const article = require('./article');
 const articles = require('./articles');
 const doctors = require('./doctors');
