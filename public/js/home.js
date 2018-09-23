@@ -32,6 +32,7 @@ btn.addEventListener('click', () => {
     if (validateEmail(emailField.value)) {
       fetch('/contactUs', {
         body: JSON.stringify(objData()),
+        credentials: 'same-origin',
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
       })
