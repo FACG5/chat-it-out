@@ -60,11 +60,15 @@ main section .container .doctors .doctor article #view_doctor{
     border: 0;
     background: #FF8D19;
     border-radius: 2px;
-    color:white;
     text-align: center;
     margin: 20px auto;
     outline: none;
     transition-duration: .5s;
+    cursor: pointer;
+}
+main section .container .doctors .doctor article #view_doctor a {
+    text-decoration: none;
+    color: #FFF;
 }
 main section .container .doctors .doctor article #view_doctor:hover{
     background: grey;
